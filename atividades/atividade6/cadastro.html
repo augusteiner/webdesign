@@ -7,10 +7,63 @@
         <title>.:: Sistema de Registro de Intenção de Votos - SRIV::.</title>
     </head>
     <body>
-        <fieldset>
-            <legend>Formulário de Cadastro</legend>
-            <form action="bem_vindo.html">
+        <hr>
+            <h2>
+                <p align="center">SRIV - Cadastro de Usuário</p>
+            </h2>
+        <hr>
+        <fieldset style="background-color: lightgray;">
+            <legend style="background-color: gray; color: white;">
+                <i>Formulário de Cadastro</i>
+            </legend>
+            <form action="bem_vindo.html" method="get">
+                <table border="0">
+                    <tr>
+                        <td align="right">
+                            <b>Nome</b>
+                        </td>
+                        <td colspan="2">
+                            <input name="nome" type="text" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>E-mail</b>
+                        </td>
+                        <td colspan="2">
+                            <input name="nome" type="email" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Sexo</b>
+                        </td>
+                        <td colspan="2">
+                            <label>
+                                <input name="sexo" type="radio"> Masculino
+                            </label>
+                            <br>
+                            <label>
+                                <input name="sexo" type="radio"> Femimino
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td align="left">
+                            <input type="reset" value="Limpar">
+                        </td>
+                        <td align="right">
+                            <input type="submit" value="Enviar">
+                        </td>
+                    </tr>
+                </table>
             </form>
         </fieldset>
+        <hr>
+        <p align="right" style="color: gray;">
+            &copy; <a style="color: gray;" href="mailto:joseaugustodearaujonascimento@gmail.com">José Nascimento</a>
+        </p>
     </body>
 </html>
