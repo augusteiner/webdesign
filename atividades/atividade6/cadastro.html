@@ -17,13 +17,13 @@
                 <i>Formulário de Cadastro</i>
             </legend>
             <form action="bem_vindo.html" method="get">
-                <table border="0">
+                <table border="0" align="center">
                     <tr>
                         <td align="right">
                             <b>Nome</b>
                         </td>
                         <td colspan="2">
-                            <input name="nome" type="text" required>
+                            <input name="nome" type="text" maxlength="100" size="30" placeholder="Informe seu nome" required>
                         </td>
                     </tr>
                     <tr>
@@ -31,7 +31,7 @@
                             <b>E-mail</b>
                         </td>
                         <td colspan="2">
-                            <input name="nome" type="email" required>
+                            <input name="nome" type="email" size="30" placeholder="Informe seu e-mail" required>
                         </td>
                     </tr>
                     <tr>
@@ -40,12 +40,27 @@
                         </td>
                         <td colspan="2">
                             <label>
-                                <input name="sexo" type="radio"> Masculino
+                                <input name="sexo" type="radio" required> Masculino
                             </label>
                             <br>
                             <label>
-                                <input name="sexo" type="radio"> Femimino
+                                <input name="sexo" type="radio" required> Femimino
                             </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>UF</b>
+                        </td>
+                        <td colspan="2">
+                            <select>
+                                <option value="RS">
+                                    RS
+                                </option>
+                                <option value="RN" selected>
+                                    RN
+                                </option>
+                            </select>
                         </td>
                     </tr>
                     <tr>
