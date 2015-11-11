@@ -9,18 +9,21 @@
     <body>
         <hr>
             <h2>
-                <p align="center">SRIV - Cadastro de Usuário</p>
+                <p align="center">
+                    <img src="imagens/urnas.png" width="30"> SRIV - Cadastro de Usuário
+                </p>
             </h2>
         <hr>
         <fieldset style="background-color: lightgray;">
             <legend style="background-color: gray; color: white;">
                 <i>Formulário de Cadastro</i>
             </legend>
+            <i>Campos marcados com * devem ser preenchidos.</i>
             <form action="bem_vindo.html" method="get">
                 <table border="0" align="center">
                     <tr>
                         <td align="right">
-                            <b>Nome</b>
+                            <b>* Nome</b>
                         </td>
                         <td colspan="2">
                             <input name="nome" type="text" maxlength="100" size="30" placeholder="Informe seu nome" required>
@@ -28,7 +31,7 @@
                     </tr>
                     <tr>
                         <td align="right">
-                            <b>E-mail</b>
+                            <b>* E-mail</b>
                         </td>
                         <td colspan="2">
                             <input name="nome" type="email" size="30" placeholder="Informe seu e-mail" required>
@@ -36,7 +39,7 @@
                     </tr>
                     <tr>
                         <td align="right">
-                            <b>Sexo</b>
+                            <b>* Sexo</b>
                         </td>
                         <td colspan="2">
                             <label>
@@ -50,16 +53,20 @@
                     </tr>
                     <tr>
                         <td align="right">
-                            <b>UF</b>
+                            <b>* UF</b>
                         </td>
                         <td colspan="2">
                             <select>
-                                <option value="RS">
-                                    RS
-                                </option>
-                                <option value="RN" selected>
-                                    RN
-                                </option>
+                                <optgroup label="Região Sul">
+                                    <option value="RS">
+                                        RS
+                                    </option>
+                                </optgroup>
+                                <optgroup label="Região Nordeste">
+                                    <option value="RN" selected>
+                                        RN
+                                    </option>
+                                </optgroup>
                             </select>
                         </td>
                     </tr>
@@ -75,6 +82,9 @@
                     </tr>
                 </table>
             </form>
+            <a href="index.html">
+                <img src="imagens/home.png"> Voltar a tela de login
+            </a>
         </fieldset>
         <hr>
         <p align="right" style="color: gray;">
