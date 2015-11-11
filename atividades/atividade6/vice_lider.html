@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="José Nascimento <joseaugustodearaujonascimento@gmail.com">
+        <title>.:: Sistema de Registro de Intenção de Votos - SRIV::.</title>
+    </head>
+    <body>
+        <hr>
+            <h2>
+                <p align="center">SRIV - Registro</p>
+            </h2>
+        <hr>
+        <fieldset style="background-color: lightgray;">
+            <legend style="background-color: gray; color: white;">
+                <i>Intenção de Voto: Vice-Líder</i>
+            </legend>
+            <form action="secretario.html" method="get">
+                <table>
+                    <tr>
+                        <td align="right">
+                            <b>Candidato</b>
+                        </td>
+                        <td colspan="2">
+                            <select name="candidato" size="1" required>
+                                <option value="1">
+                                    José Augusto
+                                </option>
+                                <option value="2">
+                                    José Fernando
+                                </option>
+                                <option selected>
+                                    -- ESCOLHA SEU CANDIDATO --
+                                </option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">
+                            <b>Motivo</b>
+                        </td>
+                        <td colspan="2">
+                            <textarea cols="50" rows="5" name="motivo_voto" placeholder="Digite aqui o motivo de ter escolhido o candidato" required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                        </td>
+                        <td>
+                            <input type="reset" value="Limpar">
+                        </td>
+                        <td align="right">
+                            <input type="submit" value="Registrar">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </fieldset>
+        <hr>
+        <p align="right" style="color: gray;">
+            &copy; <a style="color: gray;" href="mailto:joseaugustodearaujonascimento@gmail.com">José Nascimento</a>
+        </p>
+    </body>
+</html>
