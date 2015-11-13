@@ -4,13 +4,13 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <form action="index.html" method="get">
+        <form action="index.html" method="get" novalidate>
             <label>
                 Escolha uma cor: <input type="color" name="cor">
             </label>
             <br>
             <label>
-                Aniversário: <input type="date" name="aniversario">
+                Aniversário: <input type="date" name="aniversario" required>
             </label>
             <br>
             <label>
@@ -38,7 +38,7 @@
             </label>
             <br>
             <label>
-                Busca: <input type="search" name="busca">
+                Busca: <input type="search" name="busca" autofocus required>
             </label>
             <br>
             <input type="submit" value="Enviar">
