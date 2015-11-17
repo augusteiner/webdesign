@@ -1,8 +1,8 @@
 body {
+    color: gray;
+    background: url(../imagens/background.png) no-repeat center center fixed;
     background-color: lightgray;
-    /*color: #32FFF7;
-    background: url('../imagens/background.png') no-repeat #111100;
-    padding-top: 300px;*/
+    /*padding-top: 300px;*/
 }
 
 h1 {
