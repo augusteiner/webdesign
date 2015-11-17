@@ -1,0 +1,27 @@
+body {
+    background-color: lightgray;
+    /*color: #32FFF7;
+    background: url('../imagens/background.png') no-repeat #111100;
+    padding-top: 300px;*/
+}
+
+h1 {
+    /*font-size: x-large;*/
+    font-family: "Segoe UI", Consolas, Helvetica, "sans serif";
+}
+
+input {
+    border: solid 1px gray;
+}
+
+p {
+    /*color: red;*/
+    background-color: white;
+    text-align: center;
+    font-size: xx-large;
+    font-family: Consolas, "sans serif";
+    border: solid 1px red;
+    border-radius: 20px;
+}
+
+
