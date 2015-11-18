@@ -1,0 +1,111 @@
+body {
+    font-family: "Segoe UI", "Fira Sans", Verdana, Arial, sans-serif;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+    background: url(../imagens/fundo.svg);
+    background-color: #C5C5C5;
+    color: white;
+}
+
+fieldset {
+    border: none;
+}
+
+input {
+    font-size: 14px;
+    font-family: "Segoe UI", "Fira Sans", Verdana, Arial, sans-serif;
+}
+
+hr {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    margin: 12px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 8px 0;
+    font-weight: normal;
+    font-size: 10pt;
+}
+h1 {
+    font-size: 15pt;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px;
+}
+/* h2 = menus */
+h2 {
+    background-color: #DEDEDE;
+    /* border: dashed 2px #3F51B5; */
+    border-top: solid 2px #9E9E9E;
+    /* border-bottom: solid 2px #9E9E9E; */
+    padding: 12px 12px;
+    /*border-radius: 6px;*/
+
+    font-size: 14pt;
+
+    text-align: center;
+    text-transform: lowercase;
+}
+
+h2 a {
+    font-style: italic;
+    text-decoration: none;
+    color: #656565;
+    border-left: solid 1px black;
+    border-right: solid 1px black;
+    padding: 0 10px;
+    margin-top: 8px;
+    /*letter-spacing: 1px;*/
+}
+
+h2 a:hover {
+    /*background-color: gray;*/
+    color: #466B7D;
+}
+
+h2 u {
+    color: #466B7D;
+}
+
+h3 {
+    color: #505050;
+    padding: 10px;
+    background-color: white;
+    font-size: 14pt;
+    border-left: solid 8px #DEDEDE;
+    padding-left: 20px;
+    font-size: 12pt;
+}
+
+h3 i {
+    color: #5288BF;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 14pt;
+}
+
+h3 p {
+    text-indent: 20px;
+}
+
+h3 u {
+    font-size: 80%;
+    text-decoration: none;
+    color: #AB2016;
+}
+
+h4 {
+    background-color: #DEDEDE;
+    border-bottom: solid 2px gray;
+    text-align: right;
+    font-size: small;
+    color: gray;
+    padding: 8px 8px;
+}
+
