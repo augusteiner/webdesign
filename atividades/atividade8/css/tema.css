@@ -81,7 +81,7 @@ h2 a {
     /*letter-spacing: 1px;*/
 }
 /* só pra ficar legal no smartphone :) */
-@media (max-width: 800px) 
+@media (max-width: 500px) 
 {
     h2 a
     {
