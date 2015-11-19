@@ -1,3 +1,14 @@
+/* só pra ficar legal no smartphone :) */
+@media (max-width: 800px) 
+{
+   h2 a
+   {
+        display: block;
+        clear: both;
+        text-align: left;
+   }
+}
+
 body {
     font-family: "Segoe UI", "Fira Sans", Verdana, Arial, sans-serif;
     font-size: 12pt;
@@ -7,7 +18,7 @@ body {
     background-color: #C5C5C5;
     color: white;
 }
-
+/* padrões globais */
 fieldset {
     border: none;
 }
@@ -26,24 +37,36 @@ p {
     margin: 12px 0;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: solid 1px gray;
+    text-align: center;
+}
+
+/* reset de estilos para os headers */
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 8px 0;
     font-weight: normal;
     font-size: 10pt;
 }
+/* cabeçalho do site */
 h1 {
     font-size: 15pt;
     font-weight: bold;
     text-align: center;
 
-    width: 400px;
+    width: 280px;
     margin: 9px auto;
     box-shadow: 2px 2px 10px gray;
     background-color: lightgray;
     border: solid 1px gray;
 }
-/* h2 = menus */
+/* menus do site */
 h2 {
     background-color: #DEDEDE;
     /* border: dashed 2px #3F51B5; */
@@ -84,7 +107,7 @@ h2 a:hover {
 h2 u {
     color: #466B7D;
 }
-
+/* corpo do site */
 h3 {
     color: #505050;
     padding: 10px;
@@ -111,7 +134,7 @@ h3 u {
     text-decoration: none;
     color: #AB2016;
 }
-
+/* rodapé do site */
 h4 {
     background-color: #DEDEDE;
     border-bottom: solid 2px gray;
@@ -120,14 +143,3 @@ h4 {
     color: gray;
     padding: 8px 8px;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-td {
-    border: solid 1px gray;
-    text-align: center;
-}
-
