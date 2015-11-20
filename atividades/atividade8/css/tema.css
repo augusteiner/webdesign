@@ -130,6 +130,14 @@ h3 i {
     font-size: 14pt;
 }
 
+h3 img {
+    width: 70px;
+    height: 90px;
+    border-radius: 5px 20px 5px;
+    border: solid 2px gray;
+    box-shadow: 2px 0 10px gray;
+}
+
 h3 p {
     text-indent: 20px;
 }
