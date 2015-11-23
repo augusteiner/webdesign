@@ -95,7 +95,7 @@ h1, h2, h3, h4 {
     width: 50%;
 }
 
-.centro {
+p.centro {
     text-align: center;
 }
 
@@ -117,5 +117,24 @@ h1, h2, h3, h4 {
     color: green;
     text-decoration: none;
     font-style: italic;
+}
+
+.motivos {
+    margin: 0;
+    padding: 0;
+}
+
+.motivo {
+    display: block;
+    margin: auto;
+    width: 50%;
+}
+
+@media (max-width: 700px) {
+    .motivo {
+        float: none;
+        clear: both;
+        width: 100%;
+    }
 }
 
