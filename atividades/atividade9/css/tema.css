@@ -1,5 +1,5 @@
 body {
-    font-family: "Segoe UI", "Fira Sans", Helvetica, sans-serif;
+    font-family: "Segoe UI", "Fira Sans", Arial, Verdana, Helvetica, sans-serif;
     background: url(../imagens/fundo.png) center right no-repeat;
     background-color: white;
 }
@@ -84,6 +84,7 @@ h1, h2, h3, h4 {
 
 .body p {
     text-indent: 20px;
+    text-align: justify;
 }
 
 .body a {
