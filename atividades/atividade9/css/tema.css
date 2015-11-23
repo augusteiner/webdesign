@@ -1,7 +1,7 @@
 body {
     font-family: "Segoe UI", Ubuntu, Helvetica, sans-serif;
-    background-color: #344119;
-    background: url(../imagens/fundo.png) no-repeat;
+    background: url(../imagens/fundo.png) center right no-repeat;
+    background-color: white;
 }
 
 h1, h2, h3, h4 {
@@ -20,15 +20,19 @@ h1, h2, h3, h4 {
 
 .header p {
     font-size: 28pt;
-    color: #006D00;
+    line-height: 100px;
+    color: white;
     -webkit-filter:
-        drop-shadow(2px 2px 2px green);
+        drop-shadow(2px 2px 2px black);
 }
 
 .header {
     height: 150px;
     padding-top: 25px;
     border-top: solid 1px green;
+    background: url(../imagens/logo.png) 150px center no-repeat;
+    background-color: green;
+    min-height: 200px;
 }
 
 #menu a.selected {
@@ -36,7 +40,7 @@ h1, h2, h3, h4 {
 }
 
 #menu a:hover {
-    background-color: green;
+    background-color: #003E00;
     color: white;
 }
 
@@ -47,19 +51,24 @@ h1, h2, h3, h4 {
     }
 }
 
+#menu {
+    background-color: green;
+}
+
 #menu a {
     text-decoration: none;
     font-size: 120%;
     padding: 2px 20px;
-    color: green;
+    color: white;
     border-left: solid 1px green;
     border-right: solid 1px green;
     border-radius: 2px;
+    background-color: #74B61E;
 }
 
 .body {
-    background-color: green;
-    color: white;
+    background-color: white;
+    color: green;
     padding: 10px;
     /*border: solid 1px black;*/
     min-height: 250px;
@@ -76,7 +85,7 @@ h1, h2, h3, h4 {
 }
 
 .body a {
-    color: white;
+    color: green;
 }
 
 #news {
