@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #ddd;
+}
+
+div {
+    /*border: solid 1px black;*/
+}
+
+#pagina {
+    margin: 1em auto;
+    width: 80%;
+    background: #fff;
+}
+
+#cabecalho {
+    background: #48B;
+}
+
+#menusuperior {
+    background: #C54;
+}
+
+#menulateral {
+    float: right;
+    width: 20%;
+    background: #F94;
+}
+
+#conteudo {
+    width: 80%;
+    background: #FFC;
+}
+
+#rodape {
+    clear: both;
+    background: #9B5;
+}
+

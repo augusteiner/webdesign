@@ -1,0 +1,58 @@
+body {
+    /*color: white;
+    font-family: "Fira Sans", sans-serif;
+    font-size: 120%;*/
+}
+
+div {
+    /*text-align: center;
+    vertical-align: middle;
+    line-height: 200px;
+    margin: 10px;
+    border: solid 2px gray;
+    border-radius: 10px;*/
+}
+
+#d1 {
+    width: 300px;
+    height: 200px;
+    background: red;
+    position: fixed;
+    left: 50px;
+}
+
+#d2 {
+    width: 33px;
+    height: 300px;
+    background: green;
+    position: static;
+    top: 100px;
+    left: 0;
+}
+
+.fotos {
+    background: yellow;
+    padding: 10px;
+}
+
+.foto {
+    border: solid 1px black;
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+.foto:nth-child(odd) {
+    background: black;
+}
+
+.foto:nth-child(even) {
+    background: white;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
