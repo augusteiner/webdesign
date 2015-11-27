@@ -24,9 +24,6 @@ img {
 
 #page_container {
     border: solid 1px green;
-}
-
-#page_container {
     width: 80%;
     margin: 0 auto;
     background-color: #E0E0E0;
@@ -68,10 +65,18 @@ img {
     padding: .2em;
 }
 
+#page_body p {
+    text-indent: 40px;
+    text-align: justify;
+}
+
 #page_side_menu {
     float: right;
     text-align: center;
     position: relative;
+    min-height: 200px;
+    max-width: 16.5%;
+    border-left: dashed 1px green;
 }
 
 #page_side_menu a {
@@ -84,14 +89,29 @@ img {
 #copy {
     font-size: 80%;
     text-align: right;
+    font-style: italic;
     padding: 6px;
 }
 
 #page_top {
+    /* adaptado de https://css-tricks.com/snippets/css/cross-browser-opacity/ */
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    /* IE 5-7 */
+    filter: alpha(opacity=70);
+    /* Netscape */
+    -moz-opacity: 0.7;
+    /* Safari 1.x */
+    -khtml-opacity: 0.7;
+    /* Good browsers */
+    opacity: 0.7;
+
+    margin: 5px;
+    width: 60px;
+    height: 60px;
     position: fixed;
     right: 0;
     bottom: 0;
-    -webkit-filter: opacity(60%);
 }
 
 @media (max-width:600px) {
@@ -101,6 +121,13 @@ img {
     }
     #page_container {
         width: 94%;
+    }
+    #page_side_menu {
+        display: none;
+    }
+    #page_body {
+        float: none;
+        width: inherit;
     }
 }
 
