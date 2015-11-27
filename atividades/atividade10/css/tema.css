@@ -7,6 +7,11 @@ body {
     color: #111;
 }
 
+h1,h2,h3,h4,h5 {
+    padding: 0;
+    margin: 0;
+}
+
 .clear-fix {
     clear: both;
 }
@@ -18,19 +23,84 @@ img {
 }
 
 #page_container {
-    width: 90%;
+    border: solid 1px green;
+}
+
+#page_container {
+    width: 80%;
     margin: 0 auto;
-    clear: both;
+    background-color: #E0E0E0;
+    color: green;
 }
 
-#page_detail {
-    float: left;
+#page_header {
+    padding: 0;
+    margin: 0;
 }
 
-#page_detail div {
-    width: 5px;
-    height: 100%;
-    min-height: 500px;
+#page_menu {
+    text-align: center;
+}
+
+#page_menu a {
+    font-size: 116%;
+    text-decoration: none;
+    color: green;
+    display: inline-block;
+    width: 20%;
+    padding: 6px 0;
+}
+
+#page_menu a.selected,
+#page_side_menu a.selected {
+    text-decoration: underline;
+}
+
+#page_menu a:hover,
+#page_side_menu a:hover {
+    background: green;
+    color: white;
+}
+
+#page_body {
+    width: 80%;
     float: left;
+    padding: .2em;
+}
+
+#page_side_menu {
+    float: right;
+    text-align: center;
+    position: relative;
+}
+
+#page_side_menu a {
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    color: green;
+}
+
+#copy {
+    font-size: 80%;
+    text-align: right;
+    padding: 6px;
+}
+
+#page_top {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    -webkit-filter: opacity(60%);
+}
+
+@media (max-width:600px) {
+    #page_menu a {
+        display: block;
+        width: 100%;
+    }
+    #page_container {
+        width: 94%;
+    }
 }
 
