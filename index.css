@@ -1,3 +1,33 @@
+/* copyright (c) José Nascimento <joseaugustodearaujonascimento@gmail.com> */
+body {
+    color: #4E4E4E;
+    background-color: #E6E6E6;
+}
+
 footer {
     text-align: right;
 }
+a {
+    color: inherit;
+}
+.atividade:hover {
+    -webkit-filter: sepia(50%);
+}
+
+.atividade {
+    width: 8em;
+    height: 8em;
+    float: left;
+    border: solid 1px #18629C;
+    margin: 0.4em;
+    text-align: center;
+    border-collapse: collapse;
+    box-shadow: 1px 1px 4px gray;
+    background-color: rgba(255, 255, 255, 0.68);
+    line-height: 14em;
+}
+
+.atividade.disabled {
+    -webkit-filter: grayscale(100%);
+}
+
