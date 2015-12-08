@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, footer {
+    text-align: center;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+footer div {
+    padding: 10px;
+}
+
+footer a {
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#main_banner {
+    background: url(../imagens/batman_v_superman.jpg) top center no-repeat;
+    width: 100%;
+    min-height: 400px;
+    margin: 20px 0;
+    color: white;
+    text-align: center;
+    line-height: 400px;
+    font-size: 400%;
+    font-weight: bold;
+}
+
+iframe {
+    margin: auto;
+    max-width: 70%;
+    display: block;
+}
+
+.horarios {
+    min-width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+.horarios td {
+    border: solid 1px gray;
+}
+
+form {
+    text-align: center;
+    width: 400px;
+    margin: auto;
+}
+
+.campo {
+    padding-top: 12px;
+}
+
+form .enviar {
+    float: right;
+}
+
+.vermelho {
+    background-color: red;
+}
