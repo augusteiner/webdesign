@@ -11,6 +11,9 @@ h1,h2,h3,h4,h5,h6 {
 }
 nav {
     text-align: center;
+    border-top: solid 1px gray;
+    border-bottom: solid 1px gray;
+    margin: 20px 0;
 }
 aside ul,
 nav ul {
@@ -19,9 +22,11 @@ nav ul {
 }
 aside li {
     display: block;
+    margin: 10px;
 }
 nav li {
     display: inline-block;
+    margin: 10px;
 }
 nav a {
     text-decoration: none;
@@ -34,35 +39,15 @@ aside {
     float: right;
     width: 20%;
 }
+.main-section {
+    width: 80%;
+}
 .page {
     border-left: solid 1px gray;
     border-right: solid 1px gray;
-    padding: 0 20px;
     margin: auto;
     width: 90%;
-}
-.main-section {
-    width: 620px;
-}
-@media (min-width: 1024px) {
-    .page {
-        width: 80%;
-    }
-    aside {
-        float: right;
-        width: 30%;
-    }
-    .main-section {
-        width: 70%;
-    }
-}
-@media (max-width: 860px) {
-    aside {
-        display: none;
-    }
-    .main-section {
-        width: 100%;
-    }
+    padding: 0 2%;
 }
 footer {
     text-align: right;
@@ -84,9 +69,35 @@ a {
     border-collapse: collapse;
     box-shadow: 1px 1px 5px #666;
     background-color: rgba(255, 255, 255, 0.68);
-    line-height: 14em;
+    line-height: 12em;
 }
 .atividade.disabled {
     -webkit-filter: blur(1px);
+}
+@media (min-width: 1024px) {
+    .page {
+        width: 80%;
+    }
+    aside {
+        float: right;
+        width: 30%;
+    }
+    .main-section {
+        width: 70%;
+    }
+}
+@media (max-width: 860px) {
+    aside {
+        display: none;
+    }
+    .main-section {
+        width: 100%;
+    }
+    .atividade {
+        width: 6em;
+        height: 6em;
+        border-radius: 0.5em;
+        line-height: 9em;
+    }
 }
 
