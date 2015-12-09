@@ -2,8 +2,68 @@
 body {
     color: #4E4E4E;
     background-color: #E6E6E6;
+    padding: 0;
+    margin: 0;
 }
-
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}
+nav {
+    text-align: center;
+}
+aside ul,
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+aside li {
+    display: block;
+}
+nav li {
+    display: inline-block;
+}
+nav a {
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: gray;
+    color: white;
+}
+aside {
+    float: right;
+    width: 20%;
+}
+.page {
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+    padding: 0 20px;
+    margin: auto;
+    width: 90%;
+}
+.main-section {
+    width: 620px;
+}
+@media (min-width: 1024px) {
+    .page {
+        width: 80%;
+    }
+    aside {
+        float: right;
+        width: 30%;
+    }
+    .main-section {
+        width: 70%;
+    }
+}
+@media (max-width: 860px) {
+    aside {
+        display: none;
+    }
+    .main-section {
+        width: 100%;
+    }
+}
 footer {
     text-align: right;
 }
@@ -11,23 +71,22 @@ a {
     color: inherit;
 }
 .atividade:hover {
-    -webkit-filter: sepia(50%);
+    -webkit-filter: sepia(80%);
 }
-
 .atividade {
     width: 8em;
     height: 8em;
+    border-radius: 1em;
     float: left;
     border: solid 1px #18629C;
     margin: 0.4em;
     text-align: center;
     border-collapse: collapse;
-    box-shadow: 1px 1px 4px gray;
+    box-shadow: 1px 1px 5px #666;
     background-color: rgba(255, 255, 255, 0.68);
     line-height: 14em;
 }
-
 .atividade.disabled {
-    -webkit-filter: grayscale(100%);
+    -webkit-filter: blur(1px);
 }
 
