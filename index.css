@@ -57,11 +57,16 @@ a {
 }
 .atividade:hover {
     -webkit-filter: sepia(80%);
+    -moz-filter: sepia(80%);
+    -o-filter: sepia(80%);
+    -ms-filter: sepia(80%);
+    filter: sepia(80%);
 }
 .atividade {
-    width: 8em;
-    height: 8em;
-    border-radius: 1em;
+    padding-top: 30px;
+    width: 100px;
+    height: 70px;
+    border-radius: 2px;
     float: left;
     border: solid 1px #18629C;
     margin: 0.4em;
@@ -69,10 +74,13 @@ a {
     border-collapse: collapse;
     box-shadow: 1px 1px 5px #666;
     background-color: rgba(255, 255, 255, 0.68);
-    line-height: 12em;
 }
 .atividade.disabled {
     -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px);
+    filter: blur(1px);
 }
 @media (min-width: 1024px) {
     .page {
@@ -92,12 +100,6 @@ a {
     }
     .main-section {
         width: 100%;
-    }
-    .atividade {
-        width: 6em;
-        height: 6em;
-        border-radius: 0.5em;
-        line-height: 9em;
     }
 }
 
