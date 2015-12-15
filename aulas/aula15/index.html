@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Exercícios - JS</title>
+        <script>
+            (function(w) {
+                "use strict";
+
+                // exemplo1();
+                exercicios();
+
+                function exercicios() {
+                    /*ex1();
+                    ex2();
+                    ex3();
+                    ex4();
+                    ex5();
+                    ex6();
+                    ex7();
+                    ex8();
+                    ex9();*/
+                    ex10();
+                }
+
+                function exemplo1() {
+                    var n1;
+                    var n2;
+                    var n3;
+                    var media;
+
+                    n1 = parseFloat(w.prompt("Digite a nota 1:"));
+                    n2 = parseFloat(w.prompt("Digite a nota 2:"));
+                    n3 = parseFloat(w.prompt("Digite a nota 3:"));
+
+                    media = (n1 + n2 + n3) / 3;
+
+                    w.alert("A média é: " + media);
+                }
+
+                function ex10() {
+                    var n1;
+                    var n2;
+
+                    n1 = parseFloat(w.prompt("Informe N1:"));
+                    n2 = parseFloat(w.prompt("Informe N2:"));
+
+                    n1 = n1 + n2;
+                    n2 = n1 - n2;
+                    n1 = n1 - n2;
+
+                    w.alert(
+                        "Antes:\n" +
+                        "    N1: " + n2 + "\n" +
+                        "    N2: " + n1 + "\n" +
+                        "Depois:\n" +
+                        "    N1: " + n1 + "\n" +
+                        "    N2: " + n2);
+                }
+
+                function ex9() {
+                    var s;
+
+                    s = parseFloat(w.prompt(
+                        "Informe o saldo da aplicação (R$):"));
+
+                    w.alert(
+                        "Saldo + reajuste (1%) = R$ " +
+                        (s * 1.01).toFixed(2));
+                }
+
+                function ex8() {
+                    var n1;
+                    var n2;
+                    var n3;
+                    var n4;
+
+                    var p1 = 1;
+                    var p2 = 2;
+                    var p3 = 3;
+                    var p4 = 4;
+
+                    n1 = parseFloat(w.prompt("Digite o 1º número:"));
+                    n2 = parseFloat(w.prompt("Digite o 2º número:"));
+                    n3 = parseFloat(w.prompt("Digite o 3º número:"));
+                    n4 = parseFloat(w.prompt("Digite o 4º número:"));
+
+                    w.alert(
+                        "A média ponderada " +
+                        "(n1 * p1 + n2 * p2 + n3 * p3 + n4 * p4)" +
+                        " / (p1 + p2 + p3 + p4) = " +
+                        (n1 * p1 + n2 * p2 + n3 * p3 + n4 * p4) /
+                            (p1 + p2 + p3 + p4));
+                }
+
+                function ex7() {
+                    var n;
+
+                    n = parseFloat(w.prompt("Digite um número:"));
+
+                    w.alert("A terça parte do número é: " + (n / 3));
+                }
+
+                function ex6() {
+                    var n;
+
+                    n = parseFloat(w.prompt("Digite um número:"));
+
+                    w.alert(
+                        "Sucessor: " + (n + 1) + "\n" +
+                        "Antecessor: " + (n - 1));
+                }
+
+                function ex5() {
+                    var qDia;
+                    var qAnos;
+                    var custoUnit;
+
+                    var cigarrosPorAno;
+                    var custoPorAno;
+
+                    qDia = parseFloat(w.prompt("Qntos cigarros p/ dia?"));
+                    custoUnit = parseFloat(w.prompt("Qnto custa 1 cigarro?"));
+                    qAnos = parseFloat(w.prompt("A quantos anos fuma?"));
+
+                    cigarrosPorAno = qDia * 365;
+                    custoPorAno = custoUnit * cigarrosPorAno;
+
+                    w.alert("Prejuízo monetário: R$ " + (custoPorAno * qAnos));
+                }
+
+                function ex4() {
+                    var gPorDia;
+                    var gEstoque;
+                    var dias;
+
+                    gPorDia = parseInt(w.prompt("Grãos p/ dia?"));
+                    gEstoque = parseInt(w.prompt("Grãos em estoque?"));
+
+                    // Regra de 3
+                    //   gPorDia = 1
+                    //   gEstoque = dias
+                    //   dias = gEstoque * 1 / gPorDia
+
+                    dias = Math.floor(gEstoque / gPorDia);
+
+                    w.alert(
+                        "O animal ainda tem " +
+                        dias +
+                        " dias de suprimentos");
+                }
+
+                function ex3() {
+                    var va;
+                    var vb;
+                    var total;
+
+                    va = parseFloat(w.prompt("Quantos votos em A?"));
+                    vb = parseFloat(w.prompt("Quantos votos em B?"));
+
+                    total = va + vb;
+
+                    w.alert("Votos em A: " + (va / total * 100) + "%");
+                    w.alert("Votos em B: " + (vb / total * 100) + "%");
+                }
+
+                function ex2() {
+                    var user;
+
+                    user = w.prompt("Digite seu nome: ");
+                    w.alert("Bem vindo, " + user + "!");
+                }
+
+                function ex1() {
+                    var r = 15 * 8;
+
+                    w.alert("15 * 8 = " + r);
+                }
+            })(window);
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
