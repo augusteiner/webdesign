@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>2ª lista de JavaScript</title>
+        <script>
+            (function(w) {
+                w.Lista2 = new (function Lista2(){
+                    this.q1 = function() {
+                        var nota;
+
+                        nota = parseFloat(w.prompt("Qual a sua nota:"));
+
+                        if (nota >= 7) {
+                            w.alert("APROVADO");
+                        } else {
+                            w.alert("REPROVADO")
+                        }
+                    };
+
+                    this.q2 = function() {
+                        var anoNasc;
+                        var anoAtual = (new Date()).getFullYear();
+
+                        anoNasc = parseInt(w.prompt("Informe o ano de nascimento:"));
+                        
+                        if (anoNasc <= anoAtual) {
+                            w.alert("A pessoa possui " + (anoAtual - anoNasc) + " anos");
+                        } else {
+                            w.alert("Você ainda não nasceu! O.O");
+                        }
+                    };
+                    
+                    this.q3 = function() {
+                        var anoNasc;
+                        var anoAtual = (new Date()).getFullYear();
+
+                        anoNasc = parseInt(w.prompt("Informe o ano de nascimento:"));
+
+                        if (anoNasc <= anoAtual) {
+                            var idade;
+                            
+                            idade = anoAtual - anoNasc;
+
+                            if (idade >= 18) {
+                                w.alert("O voto é obrigatório.");
+                            } else if (idade >= 16) {
+                                w.alert("O voto é opcional.");
+                            } else {
+                                w.alert("Não pode votar.");
+                            }
+                        } else {
+                            w.alert("Você ainda não nasceu! O.O");
+                        }
+                    };
+                    
+                    this.q4 = function() {
+                        var nome;
+                        
+                        nome = w.prompt("Informe seu nome:");
+                        
+                        switch (nome) {
+                            case "SOGRA":
+                            case "Sogra":
+                            case "sogra":
+                                w.alert("Vá em paz.");
+                                break;
+                            default:
+                                w.alert("Pode entrar.");
+                                break;
+                        }
+                    };
+                    
+                    this.q5 = function() {
+                        var salario;
+                        
+                        salario = parseFloat(w.prompt("Informe o salário do funcionário:"));
+                        
+                        if (salario >= 2000) {
+                            w.alert("O funcionário é rico.");
+                        } else if (salario >= 700) {
+                            w.alert("Salário comercial.");
+                        } else {
+                            w.alert("Trabalho escravo.");
+                        }
+                    };
+                    
+                    this.q6 = function() {
+                        var vUnidade = 1.30;
+                        var vUnidadeDuzia = 1.00;
+                        var qte;
+                        var total;
+                        
+                        qte = parseInt(w.prompt("Quantidade de laranjas foram compradas:"));
+
+                        if (qte < 12) {
+                            total = qte * vUnidade;
+                        } else {
+                            total = qte * vUnidadeDuzia;
+                        }
+
+                        w.alert("O total da compra é de R$ " + total.toFixed(2));
+                    };
+
+                    this.q7 = function() {
+                        var n1;
+                        var n2;
+                        var n3;
+
+                        n1 = parseFloat(w.prompt("Informe o 1º núm. real:"));
+                        n2 = parseFloat(w.prompt("Informe o 2º núm. real:"));
+                        n3 = parseFloat(w.prompt("Informe o 3º núm. real:"));
+
+                        if (n1 > (n2 + n3)) {
+                            w.alert("O 1º núm. e maior que a soma dos outros dois");
+                        } else {
+                            w.alert("O 1º núm. é menor ou igual a soma dos outros dois");
+                        }
+                    };
+
+                    this.q8 = function() {
+                        var sal;
+                        
+                        sal = parseFloat(w.prompt("Informe o salário da família:"));
+                        
+                        if (sal > 1000 && sal < 3000) {
+                            w.alert("GANHA DESCONTO");
+                        } else {
+                            w.alert("PREÇO NORMAL");
+                        }
+                    };
+                });
+            })(window);
+        </script>
+    </head>
+    <body>
+        <h1>
+            Bem vindo a Lista 2 sobre JavaScript!
+        </h1>
+        <h2>
+            Selecione a questão abaixo e clique no botão para iniciar
+            a execução da referida questão.
+        </h2>
+        <label>
+            Selecione a questão:
+            <select id="questao">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+            </select>
+        </label>
+        <button id="iniciar">Iniciar questão!</button>
+        <script>
+            document.getElementById("iniciar").onclick = function(){
+                var q = document.getElementById("questao").value;
+
+                window.Lista2["q" + q]();
+            };
+        </script>
+    </body>
+</html>
