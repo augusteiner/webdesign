@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script>
+            var usuario;
+            var defuntos;
+            var ano;
+            var lucroPorDefunto = 387;
+            var anoAtual = (new Date()).getFullYear();
+            var w = window;
+            
+            usuario = window.prompt("Qual usuário?");
+            
+            switch (usuario) {
+                case "admin":
+                case "administrador":
+                    
+                    defuntos = parseInt(w.prompt("Informe a qte de defuntos:"));
+                    w.alert("O lucro total é: R$ " + (defuntos * lucroPorDefunto).toFixed(2));
+                break;
+                case "defunto":
+                    
+                    ano = parseInt(w.prompt("Digite o ano que você morreu:"));
+                    w.alert("Você já comemorou " + (anoAtual - ano) + " dias de finados, parabéns!");
+                break;
+                default:
+                    w.alert("Usuário não identificado!");
+                break;
+            }
+        </script>
+    </head>
+</html>
