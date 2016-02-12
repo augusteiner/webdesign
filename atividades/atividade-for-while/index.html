@@ -4,139 +4,134 @@
         <meta charset="utf-8">
         <title>Aula sobre while</title>
         <script>
-            (function(w, d){
-                w.Lista = new (function Lista(){
-                    this.slide1 = {
-                        q1 : function(){
-                            var i = 0;
-                            var n;
+(function(w, d){
+    w.Lista = new (function Lista(){
+        this.slide1 = {
+            q1 : function(){
+                var i = 0;
+                var n;
 
-                            while (i++ < 20) {
-                                n = parseInt(Math.random() * 100);
+                while (i++ < 20) {
+                    n = parseInt(Math.random() * 100);
 
-                                w.alert("Nº " + i + ": " + n);
-                            }
-                        },
-                        q2 : function(){
-                            var n = 10;
+                    w.alert("Nº " + i + ": " + n);
+                }
+            },
+            q2 : function(){
+                var n = 10;
 
-                            while (n <= 20) {
-                                w.alert(n++);
-                            }
-                        },
-                        q3 : function(){
-                            var n = 20;
+                while (n <= 20) {
+                    w.alert(n++);
+                }
+            },
+            q3 : function(){
+                var n = 20;
 
-                            while (n >= 10) {
-                                w.alert(n--);
-                            }
-                        },
-                        q4 : function(){
-                            var i;
-                            var f;
+                while (n >= 10) {
+                    w.alert(n--);
+                }
+            },
+            q4 : function(){
+                var i;
+                var f;
 
-                            i = w.prompt("Informe o valor inicial:");
-                            f = w.prompt("Informe o valor final:");
+                i = w.prompt("Informe o valor inicial:");
+                f = w.prompt("Informe o valor final:");
 
-                            while (i <= f) {
-                                w.alert(i++);
-                            }
-                        }
-                    };
+                while (i <= f) {
+                    w.alert(i++);
+                }
+            }
+        };
 
-                    this.slide2 = {
-                        q1 : function() {
-                            var i = 0;
+        this.slide2 = {
+            q1 : function() {
+                var i = 0;
 
-                            while (i <= 10) {
-                                w.alert(i);
-                                i += 2;
-                            }
-                        },
-                        q2 : function() {
-                            var p = 0;
+                while (i <= 10) {
+                    w.alert(i);
+                    i += 2;
+                }
+            },
+            q2 : function() {
+                var p = 0;
 
-                            while (p <= 500) {
-                                // se p for par escreva
-                                if (p % 2 == 0) {
-                                    d.write(p + "<br>");
-                                }
+                while (p <= 500) {
+                    // se p for par escreva
+                    if (p % 2 == 0) {
+                        d.write(p + "<br>");
+                    }
 
-                                p++;
-                            }
-                        },
-                        q3 : function() {
-                            var i = 0;
-                            var t = 6;
-                            
-                            while (i <= 10) {
-                                d.write(
-                                    t +" x " + i + " = " + (t * i) + "<br>");
+                    p++;
+                }
+            },
+            q3 : function() {
+                var i = 0;
+                var t = 6;
+                
+                while (i <= 10) {
+                    d.write(t + " x " + i + " = " + (t * i) + "<br>");
 
-                                i++;
-                            }
-                        }
-                    };
+                    i++;
+                }
+            }
+        };
 
-                    this.slide3 = {
-                        q1 : function() {
-                            for (var i = 0; i < 5; i++) {
-                                parseFloat(w.prompt(
-                                    "Informe um nº:"));
-                            }
-                        },
-                        q2 : function() {
-                            var s = 0;
+        this.slide3 = {
+            q1 : function() {
+                for (var i = 0; i < 5; i++) {
+                    parseFloat(w.prompt("Informe um nº:"));
+                }
+            },
+            q2 : function() {
+                var s = 0;
 
-                            for (var i = 0; i < 5; i++) {
-                                s += parseFloat(w.prompt(
-                                    "Informe um nº:"));
-                            }
-                            
-                            w.alert("Soma dos nº informados: " + s);
-                        },
-                        q3 : function() {
-                            var s = 0;
-                            var n = 5;
+                for (var i = 0; i < 5; i++) {
+                    s += parseFloat(w.prompt("Informe um nº:"));
+                }
+                
+                w.alert("Soma dos nº informados: " + s);
+            },
+            q3 : function() {
+                var s = 0;
+                var n = 5;
 
-                            for (var i = 0; i < n; i++) {
-                                s += parseFloat(w.prompt(
-                                    "Informe a nota #" + i + " :"));
-                            }
-                            
-                            w.alert("A média das notas é: " + (s / n));
-                        }
-                    };
+                for (var i = 0; i < n; i++) {
+                    s += parseFloat(w.prompt("Informe a nota #" + i + " :"));
+                }
+                
+                w.alert("A média das notas é: " + (s / n));
+            }
+        };
 
-                    this.slide5 = {
-                        q1 : function() {
-                            var maior = -Infinity;
-                            var menor = Infinity;
-                            var n;
+        this.slide5 = {
+            q1 : function() {
+                var maior = -Infinity;
+                var menor = Infinity;
+                var n;
 
-                            for (var i = 0; i < 5; i++) {
-                                n = parseFloat(w.prompt(
-                                    "Informe um nº:"));
+                for (var i = 0; i < 5; i++) {
+                    n = parseFloat(w.prompt("Informe um nº:"));
 
-                                if (n < menor) {
-                                    menor = n;
-                                }
+                    if (n < menor) {
+                        menor = n;
+                    }
 
-                                if (n > maior) {
-                                    maior = n;
-                                }
-                            }
+                    if (n > maior) {
+                        maior = n;
+                    }
+                }
 
-                            w.alert("O menor nº é: " + menor);
-                            w.alert("O maior nº é: " + maior);
-                        },
-                        q2 : function() {
-                        },
-                        q3 : function() {
-                        }
-                    };
-                });
-            })(window, document);
+                w.alert("O menor nº é: " + menor);
+                w.alert("O maior nº é: " + maior);
+            },
+            q2 : function() {
+            },
+            q3 : function() {
+            }
+        };
+    });
+})(window, document);
         </script>
     </head>
 </html>
