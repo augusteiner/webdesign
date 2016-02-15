@@ -163,6 +163,60 @@ var $ = {
                 $.alert(b + "^" + e + " = " + r);
             }
         };
+
+        this.slide7 = {
+            q1 : function() {
+                var c = 0;
+
+                c = parseFloat($.prompt("Informe o valor da conta:"));
+
+                $.write("Conta: R$ " + (c.toFixed(2)) + ".<br><br>");
+
+                for (var i = 1; i <= 20; i++) {
+                    $.write("Para " + i + " pessoa(s): R$ " + (c / i).toFixed(2) + " por pessoa.<br>");
+                }
+            }
+        };
+
+        this.slide8 = {
+            q1 : function() {
+                var i = 1;
+                $.write("Múltiplos de 7 menores que 200:<br><br>");
+
+                while (i < 200) {
+                    if (i % 7 == 0) {
+                        $.write(i + "<br>");
+                    }
+
+                    i++;
+                }
+            },
+            q2 : function() {
+                var n;
+                var i = 0;
+
+                n = parseInt($.prompt("Informe o nº para o qual deseja tabuada:"));
+
+                while (i <= 10) {
+                    $.write(n + " x " + i + " = " + (n * i) + "<br>");
+
+                    i++;
+                }
+            },
+            q3 : function() {
+                $.write('<table style="width: 100%; border-collapse: collapse;" border="1">');
+
+                for (var i = 0; i < 5; i++) {
+                    $.write('<tr style="background-color: ' + (i % 2 == 0 ? '#03A9F4' : '#F14F86') + ';">');
+                        $.write('<td> 1 </td>');
+                        $.write('<td> 2 </td>');
+                        $.write('<td> 3 </td>');
+                    $.write('</tr>');
+                }
+
+                $.write('</table>');
+            }
+        };
     });
 })($);
 
@@ -232,6 +286,22 @@ function executar() {
                                 Questão 2
                             </option>
                             <option value="5;3">
+                                Questão 3
+                            </option>
+                        </optgroup>
+                        <optgroup label="Slide 7">
+                            <option value="7;1">
+                                Questão 1
+                            </option>
+                        </optgroup>
+                        <optgroup label="Slide 8">
+                            <option value="8;1">
+                                Questão 1
+                            </option>
+                            <option value="8;2">
+                                Questão 2
+                            </option>
+                            <option value="8;3">
                                 Questão 3
                             </option>
                         </optgroup>
