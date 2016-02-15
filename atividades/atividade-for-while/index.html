@@ -2,10 +2,21 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Aula sobre while</title>
+        <title>Lista de for/while</title>
         <script>
-(function(w, d){
-    w.Lista = new (function Lista(){
+var $ = {
+    alert: function(arg) {
+        window.alert(arg); },
+    prompt: function(arg) {
+        return window.prompt(arg); },
+    write: function(arg) {
+        document.write(arg); },
+    byId: function(id) {
+        return document.getElementById(id); }
+};
+
+(function(f){
+    $.Lista = new (function Lista(){
         this.slide1 = {
             q1 : function(){
                 var i = 0;
@@ -14,32 +25,32 @@
                 while (i++ < 20) {
                     n = parseInt(Math.random() * 100);
 
-                    w.alert("Nº " + i + ": " + n);
+                    $.alert("Nº " + i + ": " + n);
                 }
             },
             q2 : function(){
                 var n = 10;
 
                 while (n <= 20) {
-                    w.alert(n++);
+                    $.alert(n++);
                 }
             },
             q3 : function(){
                 var n = 20;
 
                 while (n >= 10) {
-                    w.alert(n--);
+                    $.alert(n--);
                 }
             },
             q4 : function(){
                 var i;
                 var f;
 
-                i = w.prompt("Informe o valor inicial:");
-                f = w.prompt("Informe o valor final:");
+                i = $.prompt("Informe o valor inicial:");
+                f = $.prompt("Informe o valor final:");
 
                 while (i <= f) {
-                    w.alert(i++);
+                    $.alert(i++);
                 }
             }
         };
@@ -49,7 +60,7 @@
                 var i = 0;
 
                 while (i <= 10) {
-                    w.alert(i);
+                    $.alert(i);
                     i += 2;
                 }
             },
@@ -59,7 +70,7 @@
                 while (p <= 500) {
                     // se p for par escreva
                     if (p % 2 == 0) {
-                        d.write(p + "<br>");
+                        $.write(p + "<br>");
                     }
 
                     p++;
@@ -70,7 +81,7 @@
                 var t = 6;
                 
                 while (i <= 10) {
-                    d.write(t + " x " + i + " = " + (t * i) + "<br>");
+                    $.write(t + " x " + i + " = " + (t * i) + "<br>");
 
                     i++;
                 }
@@ -80,27 +91,27 @@
         this.slide3 = {
             q1 : function() {
                 for (var i = 0; i < 5; i++) {
-                    parseFloat(w.prompt("Informe um nº:"));
+                    parseFloat($.prompt("Informe um nº:"));
                 }
             },
             q2 : function() {
                 var s = 0;
 
                 for (var i = 0; i < 5; i++) {
-                    s += parseFloat(w.prompt("Informe um nº:"));
+                    s += parseFloat($.prompt("Informe um nº:"));
                 }
                 
-                w.alert("Soma dos nº informados: " + s);
+                $.alert("Soma dos nº informados: " + s);
             },
             q3 : function() {
                 var s = 0;
                 var n = 5;
 
                 for (var i = 0; i < n; i++) {
-                    s += parseFloat(w.prompt("Informe a nota #" + i + " :"));
+                    s += parseFloat($.prompt("Informe a nota #" + i + " :"));
                 }
                 
-                w.alert("A média das notas é: " + (s / n));
+                $.alert("A média das notas é: " + (s / n));
             }
         };
 
@@ -111,7 +122,7 @@
                 var n;
 
                 for (var i = 0; i < 5; i++) {
-                    n = parseFloat(w.prompt("Informe um nº:"));
+                    n = parseFloat($.prompt("Informe um nº:"));
 
                     if (n < menor) {
                         menor = n;
@@ -122,16 +133,116 @@
                     }
                 }
 
-                w.alert("O menor nº é: " + menor);
-                w.alert("O maior nº é: " + maior);
+                $.alert("O menor nº é: " + menor);
+                $.alert("O maior nº é: " + maior);
             },
             q2 : function() {
+                var n;
+                var s = 1;
+
+                n = parseInt($.prompt("Informe um nº:"));
+
+                for (var i = n; i >= 1; i--) {
+                    s *= i;
+                }
+
+                $.alert(n + "! = " + s);
             },
             q3 : function() {
+                var b;
+                var e;
+                var r = 1;
+
+                b = parseFloat($.prompt("Informe a base:"));
+                e = parseInt($.prompt("Informe o expoente (nº inteiro):"));
+
+                for (var i = e; i >= 1; i--) {
+                    r *= b;
+                }
+
+                $.alert(b + "^" + e + " = " + r);
             }
         };
     });
-})(window, document);
+})($);
+
+function executar() {
+    var select = $.byId('questao');
+    var info = select.value.split(';');
+    var sn = info[0];
+    var qn = info[1];
+
+    var questao = $.Lista['slide' + sn]['q' + qn];
+
+    questao();
+    // console.log(questao);
+}
         </script>
     </head>
+    <body>
+        <header>
+            <h1>Lista sobre for/while</h1>
+        </header>
+        <section>
+            <div>
+                <label>
+                    Escolha a questão e clique em executar!
+                    <select id="questao">
+                        <optgroup label="Slide 1">
+                            <option value="1;1">
+                                Questão 1
+                            </option>
+                            <option value="1;2">
+                                Questão 2
+                            </option>
+                            <option value="1;3">
+                                Questão 3
+                            </option>
+                            <option value="1;4">
+                                Questão 4
+                            </option>
+                        </optgroup>
+                        <optgroup label="Slide 2">
+                            <option value="2;1">
+                                Questão 1
+                            </option>
+                            <option value="2;2">
+                                Questão 2
+                            </option>
+                            <option value="2;3">
+                                Questão 3
+                            </option>
+                        </optgroup>
+                        <optgroup label="Slide 3">
+                            <option value="3;1">
+                                Questão 1
+                            </option>
+                            <option value="3;2">
+                                Questão 2
+                            </option>
+                            <option value="3;3">
+                                Questão 3
+                            </option>
+                        </optgroup>
+                        <optgroup label="Slide 5">
+                            <option value="5;1">
+                                Questão 1
+                            </option>
+                            <option value="5;2">
+                                Questão 2
+                            </option>
+                            <option value="5;3">
+                                Questão 3
+                            </option>
+                        </optgroup>
+                    </select>
+                </label>
+                <button id="executar" onclick="executar();">
+                    Executar &gt;
+                </button>
+            </div>
+        </section>
+        <footer>
+        </footer>
+    </body>
 </html>
