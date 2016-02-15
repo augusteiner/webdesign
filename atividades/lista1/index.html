@@ -4,185 +4,186 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="José Nascimento <joseaugustodearaujonascimento@gmail.com>">
+        <title>1ª lista de JavaScript</title>
         <script type="text/javascript">
-            (function(w) {
-                "use strict";
+(function(w) {
+    "use strict";
 
-                w.Lista1 = new (function Lista1() {
+    w.Lista1 = new (function Lista1() {
 
-                    this.q1 = function() {
-                        var prod;
+        this.q1 = function() {
+            var prod;
 
-                        prod = 28 * 43;
+            prod = 28 * 43;
 
-                        w.alert("O produto 28 * 43  = " + prod);
-                    }
+            w.alert("O produto 28 * 43  = " + prod);
+        }
 
-                    this.q2 = function() {
-                        var n1;
-                        var n2;
-                        var n3;
-                        var media;
+        this.q2 = function() {
+            var n1;
+            var n2;
+            var n3;
+            var media;
 
-                        n1 = parseFloat(w.prompt("Informe o 1º núm.:"));
-                        n2 = parseFloat(w.prompt("Informe o 2º núm.:"));
-                        n3 = parseFloat(w.prompt("Informe o 3º núm.:"));
+            n1 = parseFloat(w.prompt("Informe o 1º núm.:"));
+            n2 = parseFloat(w.prompt("Informe o 2º núm.:"));
+            n3 = parseFloat(w.prompt("Informe o 3º núm.:"));
 
-                        media = (n1 + n2 + n3) / 3;
+            media = (n1 + n2 + n3) / 3;
 
-                        w.alert("A média aritmética dos 3 núm. é: " + media);
-                    }
+            w.alert("A média aritmética dos 3 núm. é: " + media);
+        }
 
-                    this.q3 = function() {
-                        var n;
+        this.q3 = function() {
+            var n;
 
-                        n = parseFloat(w.prompt("Digite um número:"));
+            n = parseFloat(w.prompt("Digite um número:"));
 
-                        w.alert(
-                            "O sucessor de " + n + " é: " + (n + 1) + "\n" +
-                            "O antecessor de " + n + " é: " + (n - 1));
-                    }
+            w.alert(
+                "O sucessor de " + n + " é: " + (n + 1) + "\n" +
+                "O antecessor de " + n + " é: " + (n - 1));
+        }
 
-                    this.q4 = function() {
-                        var n1;
-                        var n2;
+        this.q4 = function() {
+            var n1;
+            var n2;
 
-                        n1 = parseFloat(w.prompt("Informe o 1º núm.:"));
-                        n2 = parseFloat(w.prompt("Informe o 2º núm.:"));
+            n1 = parseFloat(w.prompt("Informe o 1º núm.:"));
+            n2 = parseFloat(w.prompt("Informe o 2º núm.:"));
 
-                        w.alert("SOMA: " + (n1 + n2));
-                    }
+            w.alert("SOMA: " + (n1 + n2));
+        }
 
-                    this.q5 = function() {
-                        var n;
+        this.q5 = function() {
+            var n;
 
-                        n = parseFloat(w.prompt("Informe um núm.:"));
+            n = parseFloat(w.prompt("Informe um núm.:"));
 
-                        w.alert("A terça parte de " + n + " é " + (n / 3));
-                    }
+            w.alert("A terça parte de " + n + " é " + (n / 3));
+        }
 
-                    this.q6 = function() {
-                        var n1;
-                        var n2;
+        this.q6 = function() {
+            var n1;
+            var n2;
 
-                        n1 = parseFloat(w.prompt("Informe o dividendo:"));
-                        n2 = parseFloat(w.prompt("Informe o divisor:"));
+            n1 = parseFloat(w.prompt("Informe o dividendo:"));
+            n2 = parseFloat(w.prompt("Informe o divisor:"));
 
-                        w.alert(
-                            "Dividendo: " + n1 + "\n" +
-                            "Divisor: " + n2 + "\n" +
-                            "Quociente: " + Math.floor(n1 / n2) + "\n" +
-                            "Resto: " + (n1 % n2));
-                    }
+            w.alert(
+                "Dividendo: " + n1 + "\n" +
+                "Divisor: " + n2 + "\n" +
+                "Quociente: " + Math.floor(n1 / n2) + "\n" +
+                "Resto: " + (n1 % n2));
+        }
 
-                    this.q7 = function() {
-                        var n1;
-                        var n2;
-                        var n3;
-                        var n4;
-                        var media;
+        this.q7 = function() {
+            var n1;
+            var n2;
+            var n3;
+            var n4;
+            var media;
 
-                        n1 = parseFloat(w.prompt("Digite o 1º núm.:"));
-                        n2 = parseFloat(w.prompt("Digite o 2º núm.:"));
-                        n3 = parseFloat(w.prompt("Digite o 3º núm.:"));
-                        n4 = parseFloat(w.prompt("Digite o 4º núm.:"));
+            n1 = parseFloat(w.prompt("Digite o 1º núm.:"));
+            n2 = parseFloat(w.prompt("Digite o 2º núm.:"));
+            n3 = parseFloat(w.prompt("Digite o 3º núm.:"));
+            n4 = parseFloat(w.prompt("Digite o 4º núm.:"));
 
-                        media = n1 * 1 + n2 * 2 + n3 * 3 + n4 * 4;
-                        media = media / 10;
+            media = n1 * 1 + n2 * 2 + n3 * 3 + n4 * 4;
+            media = media / 10;
 
-                        w.alert(
-                            "A média ponderada é: " + media);
-                    }
+            w.alert(
+                "A média ponderada é: " + media);
+        }
 
-                    this.q8 = function() {
-                        var saldo;
+        this.q8 = function() {
+            var saldo;
 
-                        saldo = parseFloat(w.prompt("Informe o saldo da aplicação (em R$):"));
+            saldo = parseFloat(w.prompt("Informe o saldo da aplicação (em R$):"));
 
-                        w.alert("O novo saldo é: R$" + (saldo * 1.1).toFixed(2));
-                    }
+            w.alert("O novo saldo é: R$" + (saldo * 1.1).toFixed(2));
+        }
 
-                    this.q9 = function() {
-                        var b;
-                        var h;
+        this.q9 = function() {
+            var b;
+            var h;
 
-                        b = parseFloat(w.prompt("Informe a base do retângulo:"));
-                        h = parseFloat(w.prompt("Informe a altura do retângulo:"));
+            b = parseFloat(w.prompt("Informe a base do retângulo:"));
+            h = parseFloat(w.prompt("Informe a altura do retângulo:"));
 
-                        w.alert(
-                            "O perímetro do retângulo é: " + (b * 2 + h * 2) + "\n" +
-                            "O área do retângulo é: " + (b * h) + "");
-                    }
+            w.alert(
+                "O perímetro do retângulo é: " + (b * 2 + h * 2) + "\n" +
+                "O área do retângulo é: " + (b * h) + "");
+        }
 
-                    this.q10 = function() {
-                        var r;
-                        var p;
-                        var a;
-                        var PI = Math.PI;
+        this.q10 = function() {
+            var r;
+            var p;
+            var a;
+            var PI = Math.PI;
 
-                        r = parseFloat(w.prompt("Informe o raio do círculo:"));
+            r = parseFloat(w.prompt("Informe o raio do círculo:"));
 
-                        p = 2 * PI * r;
-                        a = PI * (r * r);
+            p = 2 * PI * r;
+            a = PI * (r * r);
 
-                        w.alert(
-                            "Perímetro do circulo: " + (p) + "\n" +
-                            "Área do circulo: " + (a));
-                    }
+            w.alert(
+                "Perímetro do circulo: " + (p) + "\n" +
+                "Área do circulo: " + (a));
+        }
 
-                    this.q11 = function() {
-                        var b;
-                        var h;
+        this.q11 = function() {
+            var b;
+            var h;
 
-                        b = parseFloat(w.prompt("Informe a base do triângulo:"));
-                        h = parseFloat(w.prompt("Informe a altura do triângulo:"));
+            b = parseFloat(w.prompt("Informe a base do triângulo:"));
+            h = parseFloat(w.prompt("Informe a altura do triângulo:"));
 
-                        w.alert("A área do triângulo é: " + ((b * h) / 2));
-                    }
+            w.alert("A área do triângulo é: " + ((b * h) / 2));
+        }
 
-                    this.q12 = function() {
-                        var p;
-                        var v;
-                        var tx;
-                        var t;
+        this.q12 = function() {
+            var p;
+            var v;
+            var tx;
+            var t;
 
-                        // p = parseFloat(w.prompt(""));
-                        v = parseFloat(w.prompt("Informe o valor (em R$):"));
-                        tx = parseFloat(w.prompt("Informe a taxa (em %):"));
-                        t = parseFloat(w.prompt("Informe o tempo de atraso (em dias):"));
+            // p = parseFloat(w.prompt(""));
+            v = parseFloat(w.prompt("Informe o valor (em R$):"));
+            tx = parseFloat(w.prompt("Informe a taxa (em %):"));
+            t = parseFloat(w.prompt("Informe o tempo de atraso (em dias):"));
 
-                        p = v + (v * (tx / 100) * t);
+            p = v + (v * (tx / 100) * t);
 
-                        w.alert("O valor da prestação é: " + p.toFixed(2));
-                    }
+            w.alert("O valor da prestação é: " + p.toFixed(2));
+        }
 
-                    this.q13 = function() {
-                        var n;
-                        var d;
+        this.q13 = function() {
+            var n;
+            var d;
 
-                        n = parseFloat(w.prompt("Informe o numerador:"));
-                        d = parseFloat(w.prompt("Informe o denominador:"));
+            n = parseFloat(w.prompt("Informe o numerador:"));
+            d = parseFloat(w.prompt("Informe o denominador:"));
 
-                        w.alert(
-                            "A fração " + n + "/" + d +
-                            " é igual ao número decimal " + (n / d));
-                    }
+            w.alert(
+                "A fração " + n + "/" + d +
+                " é igual ao número decimal " + (n / d));
+        }
 
-                    this.q14 = function () {
-                        var h;
-                        var m;
+        this.q14 = function () {
+            var h;
+            var m;
 
-                        h = parseFloat(w.prompt("Informe um valor de hora:"));
+            h = parseFloat(w.prompt("Informe um valor de hora:"));
 
-                        // 1 hora  = 60 min
-                        // h horas = m min
+            // 1 hora  = 60 min
+            // h horas = m min
 
-                        m = h * 60;
+            m = h * 60;
 
-                        w.alert("Se passaram " + m + " minutos desde o início do dia");
-                    }
-                });
-            })(window);
+            w.alert("Se passaram " + m + " minutos desde o início do dia");
+        }
+    });
+})(window);
         </script>
     </head>
     <body>
