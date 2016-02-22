@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="José Nascimento <joseaugustodearaujonascimento@gmail.com>">
+        <title>Agenda de contatos</title>
+        <script>
+var $ = {
+    prompt: function(what) {
+        return window.prompt(what); },
+    byId: function(id) {
+        return document.getElementById(id); }};
+
+(function($) {
+    $.Lista = new (function Lista(){
+        this.submit = function(form) {
+            var nome = form.nome.value;
+            var fone = form.fone.value;
+
+            this.adicionarContato(
+                nome,
+                fone);
+        };
+
+        this.prompt = function() {
+            var nome = $.prompt("Informe o nome do novo contato:");
+            var fone = $.prompt("Informe o telefone do novo contato:");
+
+            this.adicionarContato(
+                nome,
+                fone);
+        };
+
+        this.adicionarContato = function(nome, fone) {
+            var lista = $.byId('lista');
+
+            // lista.value += 'Contato: ---------------------\n';
+
+            lista.value += '------------------------------\n';
+            lista.value += '  Nome: ' + nome + '\n';
+            lista.value += '  Fone: ' + fone + '\n';
+
+            // lista.value += '------------------------------\n';
+        };
+    });
+})($);
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1>Agenda de contatos</h1>
+        </header>
+        <section>
+            <label>
+                Lista de contatos:
+                <br>
+                <textarea id="lista" rows="15" cols="30"></textarea>
+                <br>
+                <button onclick="$.Lista.prompt();">
+                    Novo Contato
+                </button>
+            </label>
+            <div>
+                <form id="contato"
+                      action="javascript:void(0);"
+                      method="get"
+                      onsubmit="$.Lista.submit(this);">
+                <fieldset>
+                    <legend>Adicionar contato</legend>
+                    <div>
+                        <label>
+                            Nome:
+                            <input id="nome" name="nome" type="search"
+                                   placeholder="Nome do Contato"
+                                   value="José Augusto"
+                                   required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Fone:
+                            <input id="fone" name="fone" type="tel"
+                                   placeholder="Telefone do Contato"
+                                   value="+55 84 9 9999-9999"
+                                   required>
+                        </label>
+                    </div>
+                    <input type="submit" value="Adicionar à lista">
+                </fieldset>
+            </div>
+        </section>
+        <footer>
+            
+        </footer>
+    </body>
+</html>
