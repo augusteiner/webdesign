@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="
+            width=device-width, initial-scale=1.0">
+        <meta name="author" content="
+            José Nascimento <joseaugustodearaujonascimento@gmail.com>">
+        <title>Exercício sobre funções</title>
+        <script>
+'use strict';
+
+var $ = {
+    byId: function(id) {
+        return document.getElementById(id); }
+};
+
+(function($){
+    $.Ex = new (function Ex(){
+        this.maior = function(v1, v2) {
+            var maior = v1 > v2 ? v1 : v2;
+
+            alert("O maior valor é: " + maior);
+        };
+
+        this.desconto = function(pago, total) {
+            var desc = (1 - (pago / total)) * 100;
+
+            alert("O desconto total foi de " + desc.toFixed(2) + "%");
+        };
+    });
+})($);
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Exibir maior</legend>
+            <form action="javascript:void(0);" method="get">
+                <input id="v1" type="number" placeholder="Número 1" required>
+                <br>
+                <input id="v2" type="number" placeholder="Número 2" required>
+                <br>
+                <button type="submit" accesskey="c" onclick="
+                    $.Ex.maior(
+                        parseFloat($.byId('v1').value),
+                        parseFloat($.byId('v2').value));">
+                    Exibir
+                </button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Calcular desconto</legend>
+            <form action="javascript:void(0);" method="get">
+                <input id="pago" type="number" placeholder="Valor pago" required>
+                <br>
+                <input id="desc" type="number" placeholder="Total" required>
+                <br>
+                <button type="submit" accesskey="c" onclick="
+                    $.Ex.desconto(
+                        parseFloat($.byId('pago').value),
+                        parseFloat($.byId('desc').value));">
+                    Calcular
+                </button>
+            </form>
+        </fieldset>
+    </body>
+</html>
