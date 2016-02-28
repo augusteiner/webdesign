@@ -9,6 +9,141 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
         <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+        <script>
+'use strict';
+
+var $ = {
+    fn: {
+        alert: function(what) { window.alert(what); },
+        prompt: function(what) { window.prompt(what); }},
+    Model: {}};
+
+(function($) {
+    var OP_ADICAO = '+';
+    var OP_SUBTRACAO = '-';
+    var OP_MULTIPLICACAO = '*';
+    var OP_DIVISAO = '/';
+    var OP_NOOP = null;
+    var IMPL_OP_NUM = 4;
+
+    $.Util = new (function Util() {
+        this.Rand = function(min, max) {
+            return Math.floor(min + (Math.random() * (max - min + 1))); };
+
+        this.parseOperacao = function(i) {
+            return new $.Model.Operacao(this.parseOperador(i)); };
+
+        this.parseOperador = function(i) {
+            switch (i) {
+                case 0:
+                    return OP_ADICAO;
+                case 1:
+                    return OP_SUBTRACAO;
+                case 2:
+                    return OP_MULTIPLICACAO;
+                case 3:
+                    return OP_DIVISAO;
+                default:
+                    return OP_NOOP;
+            }
+        };
+    });
+
+    $.Model.Operacao = (function Operacao(opChar) {
+        var opFuncs = {};
+        opFuncs[OP_ADICAO] = function(p1, p2) {
+            return p1 + p2; };
+        opFuncs[OP_SUBTRACAO] = function(s, m) {
+            return s - m; };
+        opFuncs[OP_MULTIPLICACAO] = function(p1, p2) {
+            return p1 * p2; };
+        opFuncs[OP_DIVISAO] = function(d1, d2) {
+            return d1 / d2; };
+
+        // console.log(opFuncs);
+
+        this.opChar = opChar;
+
+        this.isDivisao = function() {
+            return this.opChar == OP_DIVISAO; };
+
+        this.isSubtracao = function() {
+            return this.opChar == OP_SUBTRACAO; };
+
+        this.eval = function(op1, op2) {
+            var fun = opFuncs[this.opChar];
+
+            return fun(op1, op2); };
+
+        this.toString = function() {
+            return this.opChar; };
+
+        this.equals = function(other) {
+            return typeof(this) == typeof(other) ||
+                this.opChar == other.opChar; };
+    });
+
+    $.Model.Question = (function Question() {
+        var Operacao = $.Model.Operacao;
+
+        this.operador1 = null;
+        this.operacao = new Operacao();
+        this.operador2 = null;
+
+        this.resultado = function() {
+            return this.operacao.eval(
+                this.operador1,
+                this.operador2); };
+        
+        this.equals = function(other) {
+            return typeof(this) == typeof(other) &&
+                this.operador1 == other.operador1 &&
+                this.operacao.equals(other.operacao) &&
+                this.operador2 == other.operador2; };
+    });
+    
+    $.Model.Question.prototype.toString = function() {
+        return this.operador1 + this.operacao + this.operador2;
+    };
+    
+    $.Model.Game = new (function Game(){
+        var Util = $.Util;
+        var Question = $.Model.Question;
+    
+        this.Questions = [];
+
+        this.novo = function(n) {
+            var i;
+            var op;
+            var q;
+
+            if (n == null) {
+                n = 4; }
+
+            for (op = 0; op < IMPL_OP_NUM; op++) {
+                for (i = 0; i < n; i++) {
+                
+                    q = new Question();
+
+                    q.operador1 = Util.Rand(1, 4);
+                    q.operacao = Util.parseOperacao(op);
+                    q.operador2 = Util.Rand(1, 5);
+
+                    if (q.operacao.isDivisao()) {
+                        q.operador1 = q.operador2 * q.operador1; }
+                    else if (q.operacao.isSubtracao()) {
+                        q.operador1 = Math.max(q.operador1, q.operador2);
+                        q.operador2 = Math.min(q.operador1, q.operador2); }
+
+                    $.fn.alert(q.toString() + "=" + q.resultado());
+
+                    this.Questions.push(q);
+                }
+            }
+        };
+    });
+})($);
+        </script>
     </head>
     <style>
         input[type=number]::-webkit-inner-spin-button,
@@ -46,48 +181,51 @@
     </style>
     <body class="mdl-color--grey-100 mdl-color-text--grey-700">
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-          <header class="mdl-layout__header">
-            <div class="mdl-layout__header-row">
-              <span class="mdl-layout-title">Math Game</span>
-              <div class="mdl-layout-spacer"></div>
-              <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="">Link</a>
-              </nav>
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <span class="mdl-layout-title">Math Game</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">Math Game</span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
             </div>
-          </header>
-          <div class="mdl-layout__drawer">
-            <span class="mdl-layout-title">Math Game</span>
-            <nav class="mdl-navigation">
-              <a class="mdl-navigation__link" href="">Link</a>
-            </nav>
-          </div>
-          <main class="mdl-layout__content">
-            <div class="page-content">
-                <div class="mdl-grid">
-                    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
-                      <div class="mdl-card__title mdl-card--expand">
-                        <h4>Operações :: +</h4>
-                      </div>
-                      <div class="mdl-card__supporting-text">
-                        <div class="" style="text-align: center">
-                            <form id="questao">
-                                <input id="termo1" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="1" placeholder="?" autofocus>
-                                <input id="operacao" class="operador mdl-typography--display-3" type="text" value="+" readonly>
-                                <input id="termo2" class="mdl-typography--display-3" type="number" value="2" max="99" min="0" maxlength="2" tabindex="2" placeholder="?" >
-                                <input id="operador" class="operador mdl-typography--display-3" type="text" value="=" readonly>
-                                <input id="resultado" class="mdl-typography--display-3" type="number" value="3" max="99" min="0" maxlength="2" tabindex="3" placeholder="?" >
-                            </form>
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    <div class="mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                            <div class="mdl-card__title mdl-card--expand">
+                                <h4>Operações :: +</h4>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                <div class="" style="text-align: center">
+                                    <form id="questao">
+                                        <input id="termo1" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="1" placeholder="?" autofocus>
+                                        <input id="operacao" class="operador mdl-typography--display-3" type="text" value="+" readonly>
+                                        <input id="termo2" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="2" placeholder="?" >
+                                        <input id="operador" class="operador mdl-typography--display-3" type="text" value="=" readonly>
+                                        <input id="resultado" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="3" placeholder="?" >
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="mdl-card__actions">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left">
+                                    Responder
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="$.Model.Game.novo();">
+                                    Novo Jogo
+                                </button>
+                            </div>
                         </div>
-                      </div>
-                      <div class="mdl-card__actions">
-                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left">
-                            Responder
-                         </button>
-                      </div>
                     </div>
                 </div>
-            </div>
-          </main>
+            </main>
         </div>
     </body>
 </html>
