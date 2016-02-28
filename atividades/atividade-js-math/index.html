@@ -11,11 +11,16 @@
         <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
     </head>
     <style>
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
         input {
-            width: 8rem;
-            height: 8rem;
+            width: 6rem;
+            height: 6rem;
             text-align: center;
-            font-size: 40pt;
+            /*font-size: 40pt;*/
             margin: 0;
             padding: 0;
         }
@@ -56,11 +61,11 @@
                       <div class="mdl-grid mdl-card__supporting-text">
                         <div class="mdl-cell mdl-cell--12-col" style="text-align: center">
                             <form id="questao">
-                                <input id="termo1" value="" maxlength="1" tabindex="1" placeholder="?" autofocus>
-                                <input id="operacao" class="operador" value="+" readonly>
-                                <input id="termo2" value="2" maxlength="1" tabindex="2">
-                                <input id="operador" class="operador" value="=" readonly>
-                                <input id="resultado" value="3" maxlength="1" tabindex="3">
+                                <input id="termo1" class="mdl-typography--display-3" type="number" value="" max="9" min="0" maxlength="1" tabindex="1" placeholder="?" autofocus>
+                                <input id="operacao" class="operador mdl-typography--display-3" type="text" value="+" readonly>
+                                <input id="termo2" class="mdl-typography--display-3" type="number" value="2" max="9" min="0" maxlength="1" tabindex="2">
+                                <input id="operador" class="operador mdl-typography--display-3" type="text" value="=" readonly>
+                                <input id="resultado" class="mdl-typography--display-3" type="number" value="3" max="9" min="0" maxlength="1" tabindex="3">
                             </form>
                         </div>
                       </div>
