@@ -130,10 +130,15 @@ var $ = {
                     q.operador2 = Util.Rand(1, 5);
 
                     if (q.operacao.isDivisao()) {
-                        q.operador1 = q.operador2 * q.operador1; }
-                    else if (q.operacao.isSubtracao()) {
-                        q.operador1 = Math.max(q.operador1, q.operador2);
-                        q.operador2 = Math.min(q.operador1, q.operador2); }
+                        q.operador1++;
+                        q.operador1 = q.operador2 * q.operador1;
+                    } else if (q.operacao.isSubtracao()) {
+                        q.operador1 = Math.max(
+                            q.operador1,
+                            q.operador2);
+                        q.operador2 = Math.min(
+                            q.operador1,
+                            q.operador2); }
 
                     $.fn.alert(q.toString() + "=" + q.resultado());
 
