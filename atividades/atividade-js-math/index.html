@@ -92,6 +92,8 @@ var _ns = {
             $.Stats.Acertos += $.CurrentGame.getStats().Acertos;
             $.Stats.Erros += $.CurrentGame.getStats().Erros;
 
+            $.Game.displayStats();
+
             this.display(new Question(OP_ADICAO));
         };
 
@@ -112,6 +114,14 @@ var _ns = {
 
         curr.start();
         curr.display(curr.getCurrentQuestion()); };
+
+    $.Game.displayStats = function() {
+        var s = $.Stats;
+
+        $.byId('statsText').innerHTML = '<strong>Jogos:</strong> ' + s.GamesPlayed + '<br>' +
+            '<strong>Erros:</strong> ' + s.Erros + '<br>' +
+            '<strong>Acertos:</strong> ' + s.Acertos + '<br>';
+    };
 
     $.Util = new (function Util() {
         this.rand = function(min, max) {
@@ -353,6 +363,7 @@ var _ns = {
                                 <h4> :: Bem vindo :: </h4>
                             </div>
                             <div class="mdl-card__supporting-text">
+                                Seja bem vindo, nesse site você poderá expandir seus conhecimentos nas operações da matemática, assim como jogar e se divertir.
                             </div>
                             <div class="mdl-card__actions">
                             </div>
@@ -402,6 +413,7 @@ var _ns = {
                                 <h4>Estatísticas do Jogo</h4>
                             </div>
                             <div class="mdl-card__supporting-text">
+                                <span id="statsText"></span>
                             </div>
                             <div class="mdl-card__actions">
                             </div>
