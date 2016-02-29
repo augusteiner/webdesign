@@ -12,10 +12,15 @@
         <script>
 'use strict';
 
-var $ = {
+var _ns = {
     fn: {
-        alert: function(what) { window.alert(what); },
-        prompt: function(what) { window.prompt(what); }},
+        alert: function(what) {
+            // console.log(what); },
+            window.alert(what); },
+        prompt: function(what) {
+            return window.prompt(what); }},
+        byId: function(id) {
+            return document.getElementById(id); },
     Model: {}};
 
 (function($) {
@@ -25,9 +30,41 @@ var $ = {
     var OP_DIVISAO = '/';
     var OP_NOOP = null;
     var IMPL_OP_NUM = 4;
+    var IMPL_N_DEFAULT_QUESTIONS = 10;
+    
+    $.Game = (function Game() {
+        var _game = $.Model.Game.novo(IMPL_N_DEFAULT_QUESTIONS);
+        var _questionIdx = 0;
+
+        this.getCurrentQuestion = function() {
+            return _game.questions[_questionIdx]; };
+
+        this.start = function() {
+            _game.currentQuestion = _game.questions[0]; };
+
+        this.resolve = function() {
+            this.getCurrentQuestion().eval(); };
+
+        this.nextQuestion = function() {
+            _game.currentQuestion = _game.questions[_questionIdx++]; };
+
+        this.isEndOfGame = function() {
+            return _questionIdx > _game.questions.length; };
+        
+        this.display = function() {
+            var q = this.getCurrentQuestion();
+
+            $.byId('termo1').value = q.operador1;
+            $.byId('operacao').value = q.operacao.toString();
+            $.byId('termo2').value = q.operador2; };
+    });
+
+    $.Game.novo = function() {
+        return new $.Game();
+    };
 
     $.Util = new (function Util() {
-        this.Rand = function(min, max) {
+        this.rand = function(min, max) {
             return Math.floor(min + (Math.random() * (max - min + 1))); };
 
         this.parseOperacao = function(i) {
@@ -59,8 +96,6 @@ var $ = {
             return p1 * p2; };
         opFuncs[OP_DIVISAO] = function(d1, d2) {
             return d1 / d2; };
-
-        // console.log(opFuncs);
 
         this.opChar = opChar;
 
@@ -101,55 +136,86 @@ var $ = {
                 this.operacao.equals(other.operacao) &&
                 this.operador2 == other.operador2; };
     });
-    
+
     $.Model.Question.prototype.toString = function() {
         return this.operador1 + this.operacao + this.operador2;
     };
-    
-    $.Model.Game = new (function Game(){
+
+    $.Model.Game = (function Game(){
         var Util = $.Util;
         var Question = $.Model.Question;
-    
-        this.Questions = [];
 
-        this.novo = function(n) {
-            var i;
-            var op;
-            var q;
+        this.questions = [];
 
-            if (n == null) {
-                n = 4; }
-
-            for (op = 0; op < IMPL_OP_NUM; op++) {
-                for (i = 0; i < n; i++) {
-                
-                    q = new Question();
-
-                    q.operador1 = Util.Rand(1, 9);
-                    q.operacao = Util.parseOperacao(op);
-                    q.operador2 = Util.Rand(1, 9);
-
-                    if (q.operacao.isDivisao()) {
-                        q.operador1++;
-                        q.operador1 = q.operador2 * q.operador1;
-                    } else if (q.operacao.isSubtracao()) {
-                        var tmp = q.operador1;
-
-                        q.operador1 = Math.max(
-                            q.operador1,
-                            q.operador2);
-                        q.operador2 = Math.min(
-                            tmp,
-                            q.operador2); }
-
-                    $.fn.alert(q.toString() + "=" + q.resultado());
-
-                    this.Questions.push(q);
-                }
-            }
+        this.contains = function(q) {
+            for (var i = 0; i < this.questions.length; i++) {
+                if (this.questions[i].equals(q)) {
+                    return true; }}
+            return false;
         };
     });
-})($);
+
+    $.Model.Game.randQuestion = function(op) {
+        var Question = $.Model.Question;
+        var Util = $.Util;
+
+        var q = new Question();
+
+        q.operador1 = Util.rand(1, 9);
+        q.operacao = Util.parseOperacao(op);
+        q.operador2 = Util.rand(1, 5);
+
+        if (q.operacao.isDivisao()) {
+            q.operador1++;
+            q.operador1 = q.operador2 * q.operador1;
+        } else if (q.operacao.isSubtracao()) {
+            var tmp = q.operador1;
+
+            q.operador1 = Math.max(
+                q.operador1,
+                q.operador2);
+            q.operador2 = Math.min(
+                tmp,
+                q.operador2);
+        }
+
+        return q;
+    };
+
+    $.Model.Game.novo = function(n) {
+        var Game = $.Model.Game;
+
+        var i;
+        var op;
+        var q;
+        var g = new Game();
+
+        g.questions = [];
+
+        if (n == null) {
+            n = IMPL_N_DEFAULT_QUESTIONS; }
+
+        for (op = 0; op < IMPL_OP_NUM; op++) {
+            i = 0;
+
+            while (i < n) {
+                q = Game.randQuestion(op);
+
+                if (!g.contains(q)) {
+                    // $.fn.alert(q.toString() + "=" + q.resultado());
+
+                    g.questions.push(q);
+                    i++;
+                }
+            }
+        }
+        
+        return g;
+    };
+})(_ns);
+
+_ns.CurrentGame = _ns.Game.novo();
+_ns.CurrentGame.start();
         </script>
     </head>
     <style>
@@ -168,6 +234,12 @@ var $ = {
             border-width: 0;
             border: none;
         }
+        input[readonly] {
+            border: none;
+        }
+        .operador {
+            width: 2rem;
+        }
         @media (max-width: 759px) {
             input {
                 width: 3.6rem;
@@ -178,12 +250,6 @@ var $ = {
                 font-size: 34px !important;
                 width: 1.2rem;
             }
-        }
-        input[readonly] {
-            border: none;
-        }
-        .operador {
-            width: 2rem;
         }
     </style>
     <body class="mdl-color--grey-100 mdl-color-text--grey-700">
@@ -222,10 +288,10 @@ var $ = {
                                 </div>
                             </div>
                             <div class="mdl-card__actions">
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="_ns.CurrentGame.nextQuestion(); _ns.CurrentGame.display();">
                                     Responder
                                 </button>
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="$.Model.Game.novo();">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="_ns.Model.Game.novo();">
                                     Novo Jogo
                                 </button>
                             </div>
