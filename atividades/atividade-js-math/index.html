@@ -240,8 +240,7 @@ var _ns = {
                 q.operador2);
         }
 
-        return q;
-    };
+        return q; };
 
     $.Model.Game.novo = function(n) {
         var Game = $.Model.Game;
@@ -266,13 +265,10 @@ var _ns = {
                     // $.fn.alert(q.toString() + "=" + q.resultado());
 
                     g.questions.push(q);
-                    i++;
-                }
-            }
+                    i++; }}
         }
 
-        return g;
-    };
+        return g; };
 
     $.Tabuada = function(n) {
         var cont = $.byId('tabuadaContent');
@@ -280,11 +276,9 @@ var _ns = {
         cont.innerHTML = "";
 
         for (var i = 1; i <= 10; i++) {
-            cont.innerHTML += n + " + " + i + " = " + (n + i) + "<br>";
-        }
+            cont.innerHTML += n + " + " + i + " = " + (n + i) + "<br>"; }
 
-        $.byId('tabuadaDialog').showModal();
-    };
+        $.byId('tabuadaDialog').showModal(); };
 
     window.onhashchange = function() {
         var hash = '#welcome';
@@ -300,8 +294,7 @@ var _ns = {
         for (i = 0; i < pages.length; i++) {
             page = pages[i];
 
-            page.style.display = "none";
-        }
+            page.style.display = "none"; }
 
         page = $.byId(id);
 
@@ -315,8 +308,7 @@ var _ns = {
         input[type=number]::-webkit-inner-spin-button,
         input[type=number]::-webkit-outer-spin-button {
             -webkit-appearance: none;
-            margin: 0;
-        }
+            margin: 0; }
         input {
             width: 6rem;
             height: 6rem;
@@ -326,34 +318,25 @@ var _ns = {
             font-size: 120%;
             border-width: 0;
             border: none;
-            outline: none;
-        }
+            outline: none; }
         input[readonly] {
-            border: none;
-        }
+            border: none; }
         .operador {
-            width: 2rem;
-        }
+            width: 2rem; }
         .page {
-            display: none;
-        }
+            display: none; }
         .mdl-card__actions {
-            text-align: right;
-        }
+            text-align: right; }
         .mdl-card__supporting-text {
-            text-indent: 2rem;
-        }
+            text-indent: 2rem; }
         @media (max-width: 759px) {
             input {
                 width: 3.6rem;
                 height: 4rem;
-                font-size: 40px !important;
-            }
+                font-size: 40px !important; }
             .operador {
                 font-size: 34px !important;
-                width: 1.2rem;
-            }
-        }
+                width: 1.2rem; }}
     </style>
     <body class="mdl-color--grey-100 mdl-color-text--grey-700" onload="window.onhashchange();">
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
