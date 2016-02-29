@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="José Augusto <joseaugustodearaujonascimento@gmail.com>">
         <title>Web Game</title>
-        <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.deep_purple-pink.min.css">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.deep_purple-indigo.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
         <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
@@ -21,6 +21,8 @@ var _ns = {
             return window.prompt(what); }},
         byId: function(id) {
             return document.getElementById(id); },
+        byClass: function(className) {
+            return document.getElementsByClassName(className); },
     Model: {},
     CurrentGame: null,
     Stats: {
@@ -258,6 +260,24 @@ var _ns = {
         
         return g;
     };
+    
+    window.onhashchange = function() {
+        var id = window.location.hash.substr(1);
+        var pages = $.byClass('page');
+        var page;
+        var i;
+
+        for (i = 0; i < pages.length; i++) {
+            page = pages[i];
+
+            page.style.display = "none";
+        }
+
+        page = $.byId(id);
+
+        if (page != null) {
+            page.style.display = "block"; }
+    };
 })(_ns);
         </script>
     </head>
@@ -284,6 +304,12 @@ var _ns = {
         .operador {
             width: 2rem;
         }
+        .page {
+            display: none;
+        }
+        .page-visible {
+            display: block;
+        }
         @media (max-width: 759px) {
             input {
                 width: 3.6rem;
@@ -296,34 +322,57 @@ var _ns = {
             }
         }
     </style>
-    <body class="mdl-color--grey-100 mdl-color-text--grey-700">
-        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <body class="mdl-color--grey-100 mdl-color-text--grey-700" onload="window.onhashchange();">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-drawer">
             <header class="mdl-layout__header">
                 <div class="mdl-layout__header-row">
-                    <span class="mdl-layout-title">Math Game</span>
+                    <span class="mdl-layout-title">
+                        Math Game</span>
                     <div class="mdl-layout-spacer"></div>
-                    <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <a class="mdl-navigation__link" href="">Link</a>
-                    </nav>
                 </div>
             </header>
             <div class="mdl-layout__drawer">
-                <span class="mdl-layout-title">Math Game</span>
+                <span class="mdl-layout-title">
+                    Math Game</span>
                 <nav class="mdl-navigation">
-                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="#games">
+                        Jogos</a>
+                    <a class="mdl-navigation__link" href="#stats">
+                        Estatísticas</a>
+                    <a class="mdl-navigation__link" href="#tabuadas">
+                        Tabuadas</a>
                 </nav>
             </div>
             <main class="mdl-layout__content">
                 <div class="page-content">
-                    <div class="mdl-grid">
+                    <div id="welcome" class="page page-visible mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                            <div class="mdl-card__title mdl-card--expand">
+                                <h4> :: Bem vindo :: </h4>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                            </div>
+                            <div class="mdl-card__actions">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="games" class="page mdl-grid">
                         <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
                             <div class="mdl-card__title mdl-card--expand">
                                 <h4>Operações :: +</h4>
                             </div>
                             <div class="mdl-card__supporting-text">
                                 <div class="" style="text-align: center">
-                                    <form id="questao" action="javascript:void(0);" method="get">
-                                        <input id="termo1" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="1" placeholder="?" autofocus>
+                                    <form id="questao" action="javascript:void(0);" method="get" onsubmit="_ns.CurrentGame.resolve();" >
+                                        <input id="termo1"
+                                               class="mdl-typography--display-3"
+                                               type="number"
+                                               value=""
+                                               max="99"
+                                               min="0"
+                                               maxlength="2"
+                                               tabindex="1"
+                                               placeholder="?" autofocus>
                                         <input id="operacao" class="operador mdl-typography--display-3" type="text" value="+" readonly>
                                         <input id="termo2" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="2" placeholder="?" >
                                         <input id="operador" class="operador mdl-typography--display-3" type="text" value="=" readonly>
@@ -332,12 +381,35 @@ var _ns = {
                                 </div>
                             </div>
                             <div class="mdl-card__actions">
-                                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="_ns.CurrentGame.resolve();" form="questao">
+                                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" form="questao">
                                     Responder
                                 </button>
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="_ns.Game.novo();">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" onclick="_ns.Game.novo();">
                                     Novo Jogo
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tabuadas" class="page mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                            <div class="mdl-card__title mdl-card--expand">
+                                <h4>Tabuadas</h4>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                                Clique em um número abaixo para exibir sua tabuada
+                            </div>
+                            <div class="mdl-card__actions">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="stats" class="page mdl-grid">
+                        <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                            <div class="mdl-card__title mdl-card--expand">
+                                <h4>Estatísticas do Jogo</h4>
+                            </div>
+                            <div class="mdl-card__supporting-text">
+                            </div>
+                            <div class="mdl-card__actions">
                             </div>
                         </div>
                     </div>
