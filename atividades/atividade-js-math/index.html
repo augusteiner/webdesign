@@ -270,10 +270,22 @@ var _ns = {
                 }
             }
         }
-        
+
         return g;
     };
-    
+
+    $.Tabuada = function(n) {
+        var cont = $.byId('tabuadaContent');
+
+        cont.innerHTML = "";
+
+        for (var i = 1; i <= 10; i++) {
+            cont.innerHTML += n + " + " + i + " = " + (n + i) + "<br>";
+        }
+
+        $.byId('tabuadaDialog').showModal();
+    };
+
     window.onhashchange = function() {
         var hash = '#welcome';
 
@@ -406,7 +418,46 @@ var _ns = {
                             <div class="mdl-card__supporting-text">
                                 Clique em um número abaixo para exibir sua tabuada
                             </div>
+                            <dialog id="tabuadaDialog" class="mdl-dialog">
+                                <h5 class="mdl-dialog__title">Tabuada</h5>
+                                <div class="mdl-dialog__content">
+                                  <p id="tabuadaContent">
+                                  <p>
+                                </div>
+                                <div class="mdl-dialog__actions">
+                                  <button id="tabuadaClose" type="button" class="mdl-button close" onclick="_ns.byId('tabuadaDialog').close();">
+                                    Ok
+                                  </button>
+                                </div>
+                            </dialog>
                             <div class="mdl-card__actions">
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="_ns.Tabuada(1);">
+                                  <i>1</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="_ns.Tabuada(2);">
+                                  <i>2</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="_ns.Tabuada(3);">
+                                  <i>3</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="_ns.Tabuada(4);">
+                                  <i>4</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="_ns.Tabuada(5);">
+                                  <i>5</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="_ns.Tabuada(6);">
+                                  <i>6</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="_ns.Tabuada(7);">
+                                  <i>7</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="_ns.Tabuada(8);">
+                                  <i>8</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--raised mdl-js-ripple-effect mdl-button--colored" onclick="_ns.Tabuada(9);">
+                                  <i>9</i>
+                                </button>
                             </div>
                         </div>
                     </div>
