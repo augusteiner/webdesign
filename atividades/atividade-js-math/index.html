@@ -110,10 +110,13 @@ var _ns = {
 
     $.Game.novo = function() {
         var curr = new $.Game();
+
         $.CurrentGame = curr;
 
         curr.start();
-        curr.display(curr.getCurrentQuestion()); };
+        curr.display(curr.getCurrentQuestion());
+
+        $.Game.displayStats(); };
 
     $.Game.displayStats = function() {
         var s = $.Stats;
