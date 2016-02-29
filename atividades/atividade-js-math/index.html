@@ -363,16 +363,8 @@ var _ns = {
                             </div>
                             <div class="mdl-card__supporting-text">
                                 <div class="" style="text-align: center">
-                                    <form id="questao" action="javascript:void(0);" method="get">
-                                        <input id="termo1"
-                                               class="mdl-typography--display-3"
-                                               type="number"
-                                               value=""
-                                               max="99"
-                                               min="0"
-                                               maxlength="2"
-                                               tabindex="1"
-                                               placeholder="?" autofocus>
+                                    <form id="questao" action="javascript:void(0);" method="get" onsubmit="_ns.CurrentGame.answer();">
+                                        <input id="termo1" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="1" placeholder="?" autofocus>
                                         <input id="operacao" class="operador mdl-typography--display-3" type="text" value="+" readonly>
                                         <input id="termo2" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="2" placeholder="?" >
                                         <input id="operador" class="operador mdl-typography--display-3" type="text" value="=" readonly>
@@ -381,7 +373,7 @@ var _ns = {
                                 </div>
                             </div>
                             <div class="mdl-card__actions">
-                                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" onclick="_ns.CurrentGame.answer();" form="questao">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" onclick="_ns.CurrentGame.answer();">
                                     Responder
                                 </button>
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" onclick="_ns.Game.novo();">
