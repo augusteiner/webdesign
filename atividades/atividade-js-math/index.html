@@ -262,6 +262,9 @@ var _ns = {
     };
     
     window.onhashchange = function() {
+        if (window.location.hash.length == 0) {
+            return; }
+
         var id = window.location.hash.substr(1);
         var pages = $.byClass('page');
         var page;
@@ -307,9 +310,6 @@ var _ns = {
         .page {
             display: none;
         }
-        .page-visible {
-            display: block;
-        }
         @media (max-width: 759px) {
             input {
                 width: 3.6rem;
@@ -345,7 +345,7 @@ var _ns = {
             </div>
             <main class="mdl-layout__content">
                 <div class="page-content">
-                    <div id="welcome" class="page page-visible mdl-grid">
+                    <div id="welcome" class="page mdl-grid" style="display: block;">
                         <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
                             <div class="mdl-card__title mdl-card--expand">
                                 <h4> :: Bem vindo :: </h4>
