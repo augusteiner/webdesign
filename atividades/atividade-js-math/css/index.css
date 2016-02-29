@@ -1,0 +1,44 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+
+input {
+    width: 6rem;
+    height: 6rem;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 120%;
+    border-width: 0;
+    border: none;
+    outline: none; }
+
+input[readonly] {
+    border: none; }
+
+.operador {
+    width: 2rem; }
+
+.page {
+    display: none; }
+
+.mdl-card__actions {
+    text-align: right; }
+
+#tabuadaContent {
+    font-family: monospace; }
+
+#welcome .mdl-card__supporting-text {
+    text-indent: 2rem; }
+
+/* para telas pequenas (testes no meu smartphone) */
+@media (max-width: 759px) {
+    input {
+        width: 3.6rem;
+        height: 4rem;
+        font-size: 40px !important; }
+
+    .operador {
+        font-size: 34px !important;
+        width: 1.2rem; }}
