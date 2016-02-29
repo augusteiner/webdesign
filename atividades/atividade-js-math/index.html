@@ -262,10 +262,12 @@ var _ns = {
     };
     
     window.onhashchange = function() {
-        if (window.location.hash.length == 0) {
-            return; }
+        var hash = '#welcome';
 
-        var id = window.location.hash.substr(1);
+        if (window.location.hash.length > 0) {
+            hash = window.location.hash; }
+
+        var id = hash.substr(1);
         var pages = $.byClass('page');
         var page;
         var i;
