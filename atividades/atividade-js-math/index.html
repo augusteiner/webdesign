@@ -65,7 +65,7 @@ var _ns = {
             var r = parseFloat($.byId('resultado').value);
             var correto = q.resultado() == r;
 
-            // console.log(correto);
+            // console.log(new Error().stack);
 
             this.nextQuestion();
 
@@ -275,7 +275,7 @@ var _ns = {
 
         cont.innerHTML = "";
 
-        for (var i = 1; i <= 10; i++) {
+        for (var i = 1; i <= 9; i++) {
             cont.innerHTML += n + " + " + i + " = " + (n + i) + "<br>"; }
 
         $.byId('tabuadaDialog').showModal(); };
@@ -379,20 +379,22 @@ var _ns = {
                                 <h5>Resolução :: Operações</h5>
                             </div>
                             <div class="mdl-card__supporting-text">
-                                <div class="" style="text-align: center">
-                                    <form id="questao" action="javascript:void(0);" method="get" onsubmit="_ns.CurrentGame.answer();">
-                                        <input id="termo1" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="1" placeholder="?" autofocus>
+                                <form id="questao" class="mdl-grid mdl-typography--text-center" action="javascript:void(0);" method="get" onsubmit="_ns.CurrentGame.answer();">
+                                    <div class="mdl-cell mdl-cell--12-col">
+                                        <input id="termo1" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="1" placeholder="?" required>
                                         <input id="operacao" class="operador mdl-typography--display-3" type="text" value="+" readonly>
-                                        <input id="termo2" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="2" placeholder="?" >
+                                        <input id="termo2" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="2" placeholder="?" required>
                                         <input id="operador" class="operador mdl-typography--display-3" type="text" value="=" readonly>
-                                        <input id="resultado" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="3" placeholder="?" >
-                                    </form>
-                                </div>
+                                        <input id="resultado" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="3" placeholder="?" required autofocus>
+                                    </div>
+                                    <div class="mdl-cell mdl-cell--12-col mdl-typography--text-center">
+                                        <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-cell mdl-cell--4-col mdl-cell--3-col-phone">
+                                            Responder
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                             <div class="mdl-card__actions">
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" onclick="_ns.CurrentGame.answer();" form="questao">
-                                    Responder
-                                </button>
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" onclick="_ns.Game.novo();">
                                     Novo Jogo
                                 </button>
