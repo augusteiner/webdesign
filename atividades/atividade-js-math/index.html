@@ -57,7 +57,7 @@ var _ns = {
         this.start = function() {
             _game.currentQuestion = _game.questions[0]; };
 
-        this.resolve = function() {
+        this.answer = function() {
             if (this.isEndOfGame()) {
                 return; }
 
@@ -363,7 +363,7 @@ var _ns = {
                             </div>
                             <div class="mdl-card__supporting-text">
                                 <div class="" style="text-align: center">
-                                    <form id="questao" action="javascript:void(0);" method="get" onsubmit="_ns.CurrentGame.resolve();" >
+                                    <form id="questao" action="javascript:void(0);" method="get">
                                         <input id="termo1"
                                                class="mdl-typography--display-3"
                                                type="number"
@@ -381,7 +381,7 @@ var _ns = {
                                 </div>
                             </div>
                             <div class="mdl-card__actions">
-                                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" form="questao">
+                                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" onclick="_ns.CurrentGame.answer();" form="questao">
                                     Responder
                                 </button>
                                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-right" onclick="_ns.Game.novo();">
