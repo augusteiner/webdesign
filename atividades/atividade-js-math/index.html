@@ -21,47 +21,95 @@ var _ns = {
             return window.prompt(what); }},
         byId: function(id) {
             return document.getElementById(id); },
-    Model: {}};
+    Model: {},
+    CurrentGame: null,
+    Stats: {
+        GamesPlayed: 0,
+        Acertos: 0,
+        Erros: 0 } };
 
 (function($) {
     var OP_ADICAO = '+';
     var OP_SUBTRACAO = '-';
     var OP_MULTIPLICACAO = '*';
     var OP_DIVISAO = '/';
-    var OP_NOOP = null;
+    var OP_NOOP = '';
+
     var IMPL_OP_NUM = 4;
     var IMPL_N_DEFAULT_QUESTIONS = 10;
     
     $.Game = (function Game() {
         var _game = $.Model.Game.novo(IMPL_N_DEFAULT_QUESTIONS);
         var _questionIdx = 0;
+        var _stats = {
+            Acertos: 0,
+            Erros: 0 };
 
         this.getCurrentQuestion = function() {
             return _game.questions[_questionIdx]; };
+
+        this.getStats = function() {
+            return _stats;
+        };
 
         this.start = function() {
             _game.currentQuestion = _game.questions[0]; };
 
         this.resolve = function() {
-            this.getCurrentQuestion().eval(); };
+            if (this.isEndOfGame()) {
+                return; }
+
+            var q = this.getCurrentQuestion();
+            var r = parseFloat($.byId('resultado').value);
+            var correto = q.resultado() == r;
+
+            // console.log(correto);
+
+            this.nextQuestion();
+
+            this.getStats().Acertos += correto ? 1 : 0;
+            this.getStats().Erros += !correto ? 1 : 0;
+
+            if (!this.isEndOfGame()) {
+                this.display(this.getCurrentQuestion());
+            } else {
+                this.endOfGame();
+            }
+        };
 
         this.nextQuestion = function() {
-            _game.currentQuestion = _game.questions[_questionIdx++]; };
+            _questionIdx++; };
 
         this.isEndOfGame = function() {
-            return _questionIdx > _game.questions.length; };
-        
-        this.display = function() {
-            var q = this.getCurrentQuestion();
+            return _questionIdx >= _game.questions.length; };
+
+        this.endOfGame = function() {
+            var Question = $.Model.Question;
+
+            $.Stats.GamesPlayed++;
+            $.Stats.Acertos += $.CurrentGame.getStats().Acertos;
+            $.Stats.Erros += $.CurrentGame.getStats().Erros;
+
+            this.display(new Question(OP_ADICAO));
+        };
+
+        this.display = function(q) {
+            var r = $.byId('resultado');
 
             $.byId('termo1').value = q.operador1;
-            $.byId('operacao').value = q.operacao.toString();
-            $.byId('termo2').value = q.operador2; };
+            $.byId('operacao').value = q.operacao;
+            $.byId('termo2').value = q.operador2;
+            r.value = "";
+
+            r.focus(); };
     });
 
     $.Game.novo = function() {
-        return new $.Game();
-    };
+        var curr = new $.Game();
+        $.CurrentGame = curr;
+
+        curr.start();
+        curr.display(curr.getCurrentQuestion()); };
 
     $.Util = new (function Util() {
         this.rand = function(min, max) {
@@ -118,11 +166,11 @@ var _ns = {
                 this.opChar == other.opChar; };
     });
 
-    $.Model.Question = (function Question() {
+    $.Model.Question = (function Question(operacao) {
         var Operacao = $.Model.Operacao;
 
         this.operador1 = null;
-        this.operacao = new Operacao();
+        this.operacao = operacao;
         this.operador2 = null;
 
         this.resultado = function() {
@@ -135,11 +183,10 @@ var _ns = {
                 this.operador1 == other.operador1 &&
                 this.operacao.equals(other.operacao) &&
                 this.operador2 == other.operador2; };
-    });
 
-    $.Model.Question.prototype.toString = function() {
-        return this.operador1 + this.operacao + this.operador2;
-    };
+        this.toString = function() {
+            return this.operador1 + this.operacao + this.operador2; };
+    });
 
     $.Model.Game = (function Game(){
         var Util = $.Util;
@@ -159,10 +206,9 @@ var _ns = {
         var Question = $.Model.Question;
         var Util = $.Util;
 
-        var q = new Question();
+        var q = new Question(Util.parseOperacao(op));
 
         q.operador1 = Util.rand(1, 9);
-        q.operacao = Util.parseOperacao(op);
         q.operador2 = Util.rand(1, 5);
 
         if (q.operacao.isDivisao()) {
@@ -213,9 +259,6 @@ var _ns = {
         return g;
     };
 })(_ns);
-
-_ns.CurrentGame = _ns.Game.novo();
-_ns.CurrentGame.start();
         </script>
     </head>
     <style>
@@ -233,6 +276,7 @@ _ns.CurrentGame.start();
             font-size: 120%;
             border-width: 0;
             border: none;
+            outline: none;
         }
         input[readonly] {
             border: none;
@@ -278,7 +322,7 @@ _ns.CurrentGame.start();
                             </div>
                             <div class="mdl-card__supporting-text">
                                 <div class="" style="text-align: center">
-                                    <form id="questao">
+                                    <form id="questao" action="javascript:void(0);" method="get">
                                         <input id="termo1" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="1" placeholder="?" autofocus>
                                         <input id="operacao" class="operador mdl-typography--display-3" type="text" value="+" readonly>
                                         <input id="termo2" class="mdl-typography--display-3" type="number" value="" max="99" min="0" maxlength="2" tabindex="2" placeholder="?" >
@@ -288,10 +332,10 @@ _ns.CurrentGame.start();
                                 </div>
                             </div>
                             <div class="mdl-card__actions">
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="_ns.CurrentGame.nextQuestion(); _ns.CurrentGame.display();">
+                                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="_ns.CurrentGame.resolve();" form="questao">
                                     Responder
                                 </button>
-                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="_ns.Model.Game.novo();">
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-left" onclick="_ns.Game.novo();">
                                     Novo Jogo
                                 </button>
                             </div>
