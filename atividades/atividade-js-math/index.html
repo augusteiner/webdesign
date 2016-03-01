@@ -95,7 +95,9 @@ var _ns = {
 
             $.Game.displayStats();
 
-            this.display(new Question(OP_ADICAO), {Erros: 0, Acertos: 0});
+            this.display(
+                new Question(OP_ADICAO),
+                { Erros: 0, Acertos: 0 });
         };
 
         this.display = function(q, s) {
