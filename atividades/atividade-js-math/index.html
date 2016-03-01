@@ -39,7 +39,7 @@ var _ns = {
     var OP_NOOP = '';
 
     var IMPL_OP_NUM = 4;
-    var IMPL_N_DEFAULT_QUESTIONS = 2;
+    var IMPL_N_DEFAULT_QUESTIONS = 10;
     
     $.Game = (function Game() {
         var _game = $.Model.Game.novo(IMPL_N_DEFAULT_QUESTIONS);
@@ -151,6 +151,28 @@ var _ns = {
                     return OP_NOOP;
             }
         };
+
+        /* cortesia de https://github.com/coolaj86/knuth-shuffle/blob/master/index.js */
+        this.shuffle = function(array) {
+          var currentIndex = array.length;
+          var temporaryValue;
+          var randomIndex;
+
+          // While there remain elements to shuffle...
+          while (0 !== currentIndex) {
+
+              // Pick a remaining element...
+              randomIndex = Math.floor(Math.random() * currentIndex);
+              currentIndex -= 1;
+
+              // And swap it with the current element.
+              temporaryValue = array[currentIndex];
+              array[currentIndex] = array[randomIndex];
+              array[randomIndex] = temporaryValue;
+          }
+
+          return array;
+        };
     });
 
     $.Model.Operacao = (function Operacao(opChar) {
@@ -254,6 +276,7 @@ var _ns = {
 
     $.Model.Game.novo = function(n) {
         var Game = $.Model.Game;
+        var Util = $.Util;
 
         var i;
         var op;
@@ -277,6 +300,8 @@ var _ns = {
                     g.questions.push(q);
                     i++; }}
         }
+
+        g.questions = Util.shuffle(g.questions);
 
         return g; };
 
