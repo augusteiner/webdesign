@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author"
+              content="José Nascimento <joseaugustodearaujonascimento@gmail.com>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Atividade sobre Strings</title>
+        <script>
+'use strict';
+
+var $ = {
+    alert : function(what) {
+        window.alert("Atenção!\n\n" + what);
+    },
+    byId : function(id) {
+        return document.getElementById(id);
+    }};
+
+var _onLoad = (function($) {
+    String.prototype.reverse = function() {
+        var r = "";
+
+        for (var i = this.length; i >= 0; i--) {
+            r += this.charAt(i);
+        }
+
+        return r;
+    };
+
+    String.prototype.somenteDigitos = function() {
+        return this.replace(/\D/g, '');
+    };
+
+    String.prototype.isFormatoCpfValido = function() {
+        return this.somenteDigitos().length == 11;
+    };
+
+    String.prototype.isFormatoFoneValido = function() {
+        return this.somenteDigitos().length == 11;
+    };
+
+    String.prototype.replaceAcentos = function() {
+        var acentuados = "àáâãäåçèéêëìíîïñòóôõöùúûüýÿ";
+        var normais    = "aaaaaaceeeeiiiinooooouuuuyy";
+        var r = "";
+        var $this = this.toLowerCase();
+        var idx = -1;
+        
+        for (var i = 0; i < this.length; i++) {
+            idx = acentuados.indexOf($this.charAt(i));
+
+            if (idx != -1) {
+                r += normais.charAt(idx);
+            } else {
+                r += $this.charAt(i);
+            }
+        }
+
+        return r;
+    };
+
+    return function() {
+        $.byId('inverter').onsubmit = function() {
+            var texto = $.byId('texto').value;
+            // console.log($.byId('invertido'));
+
+            $.byId('invertido').value = texto.reverse();
+        };
+
+        $.byId('validar').onsubmit = function() {
+            var cpf = $.byId('cpf');
+            var fone = $.byId('fone');
+
+            if (!cpf.value.isFormatoCpfValido()) {
+                $.alert("CPF em formato inválido.");
+            }
+
+            if (!fone.value.isFormatoFoneValido()) {
+                $.alert("Fone em formato inválido.");
+            }
+        };
+
+        $.byId('removerAcentos').onsubmit = function() {
+            var acentuada = $.byId('acentuada');
+            var normal = $.byId('normal');
+
+            normal.value = acentuada.value.replaceAcentos();
+        };
+    };
+}($));
+        </script>
+        <style>
+form input {
+    width: 100%;
+    margin-bottom: 0.6rem;
+}
+        </style>
+    </head>
+    <body onload="_onLoad();">
+        <fieldset>
+            <legend>Reverso</legend>
+            <form id="inverter" action="javascript:void(0);" method="get">
+                <div>
+                    <input id="texto" type="text" value="Socorram-me, subi no ônibus em Marrocos" placeholder="Texto a inverter" required>
+                </div>
+                <div>
+                    <input id="invertido" type="text" value="" placeholder="Texto invertido" readonly>
+                </div>
+                <button type="submit" accesskey="i">
+                    Inverter
+                </button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Cadastro</legend>
+            <form id="validar" action="javascript:void(0);" method="get">
+                <div>
+                    <input id="cpf" type="text" value="071.342.694-26" placeholder="Informe o CPF" required>
+                </div>
+                <div>
+                    <input id="fone" type="text" value="(84) 9 9667-1238" placeholder="Informe o Telefone" required>
+                </div>
+                <button type="submit" accesskey="i">
+                    Verificar
+                </button>
+            </form>
+        </fieldset>
+        <fieldset>
+            <legend>Remover acentos</legend>
+            <form id="removerAcentos" action="javascript:void(0);" method="get">
+                <div>
+                    <input id="acentuada" type="text" value="àáâãäåçèéêëìíîïñòóôõöùúûüýÿ" placeholder="Palavra acentuada" required>
+                </div>
+                <div>
+                    <input id="normal" type="text" value="" placeholder="Palavra sem acentos" required readonly>
+                </div>
+                <button type="submit" accesskey="i">
+                    Remover
+                </button>
+            </form>
+        </fieldset>
+    </body>
+</html>
