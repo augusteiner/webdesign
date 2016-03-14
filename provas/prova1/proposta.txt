@@ -1,2 +1,0 @@
-* criar pequeno site com estrutura proposta contendo os elementos indicados;
-* 
