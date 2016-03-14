@@ -363,6 +363,13 @@ var _ns = {
 
         if (page != null) {
             page.style.display = "block"; }
+
+        var d = $.byClass(
+            'mdl-layout__obfuscator is-visible');
+
+        if (d.length == 1) {
+            d[0].click();
+        }
     };
 })(_ns);
   </script>
