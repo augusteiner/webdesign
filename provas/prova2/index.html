@@ -7,71 +7,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Design - Prova 2º Bimestre</title>
     <script>
+'use strict';
+
 var count = 0;
 var partesBarco = 3;
 
 function img_OnClick(img, tipo) {
-    var img;
+    var novoSrc = "imagens/" + tipo + ".jpg";
 
-    count++;
-    
-    if (tipo != 'mar') {
-        partesBarco--;
+
+    if (img.src.lastIndexOf(novoSrc) == -1) {
+        if (tipo != 'mar') {
+            partesBarco--;
+        }
+
+        count++;
+        img.src = novoSrc;
     }
 
     document.getElementById('clicks').value = count;
-    img.src = "imagens/" + tipo + ".jpg";
-
-    if (partesBarco == 0) {
-        alert("Você ganhou, Parabéns!");
-    }
 }
+
+function init() {
+    var navioImgs = document.getElementsByClassName('navio');
+    var curr;
+
+    for (var i = 0; i < navioImgs.length; i++) {
+        curr = navioImgs[i];
+        curr.onload = function() {
+            if (partesBarco == 0) {
+                partesBarco = -1;
+
+                alert("Você ganhou, Parabéns!");
+            }
+        };
+    }
+
+    partesBarco = navioImgs.length;
+}
+
     </script>
+    <style>
+img {
+    float: left;
+    border: solid 1px gray;
+}
+.clearfix {
+    clear: both;
+}
+    </style>
 </head>
-<body>
+<body onload="init();">
     <input id="clicks" type="text" value="0"> cliques!
     <br>
     <br>
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <br>
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <br>
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <br>
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'n1');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'n3');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'n2');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <br>
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <br>
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
-    <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+    <div>
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <div class="clearfix"></div>
+    </div>
+    <div>
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <div class="clearfix"></div>
+    </div>
+    <div>
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <div class="clearfix"></div>
+    </div>
+    <div>
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img class="navio" src="imagens/zero.jpg" onclick="img_OnClick(this, 'n1');">
+        <img class="navio" src="imagens/zero.jpg" onclick="img_OnClick(this, 'n3');">
+        <img class="navio" src="imagens/zero.jpg" onclick="img_OnClick(this, 'n2');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <div class="clearfix"></div>
+    </div>
+    <div>
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <div class="clearfix"></div>
+    </div>
+    <div>
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <img src="imagens/zero.jpg" onclick="img_OnClick(this, 'mar');">
+        <div class="clearfix"></div>
+    </div>
 </body>
 </html>
