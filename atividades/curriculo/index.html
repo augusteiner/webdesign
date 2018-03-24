@@ -13,6 +13,11 @@
   </title>
   <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
   <style>
+    @page {
+      margin: .5cm;
+      padding: .5cm;
+      zoom: 110%;
+    }
     h1 {
         font-size: 14pt;
     }
@@ -31,15 +36,19 @@
         margin-left: 0.2rem;
     }
     body {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
         color: black;
         text-align: justify;
         font-family: "Fira Sans Compressed", "Fira Sans Book", "Fira Sans", "Droid Sans", Arial, sans-serif;
         font-size: 10pt;
         margin: 0;
-        padding: .5rem .8rem;
-        border: dashed 1px rgb(158, 158, 158);
-        background-color: #F3F3F3;
+        padding: .3cm .3cm;
+        /* background-color: #F3F3F3; */
         /* background-color: #EDEDED; */
+        height: 100%;
     }
     hr {
       border: none;
@@ -74,235 +83,237 @@
   </style>
   </head>
 <body>
-  <header>
-    <!-- foto pessoal -->
-    <img class="foto-pessoal" src="http://goo.gl/4TTzA5" width="100" alt="Minha foto pessoal">
-    <!-- qr code -->
-    <!--<img src="http://goo.gl/d5m5s7" align="right" width="140" alt="">-->
-    <h1>
-      José Augusto de A. Nascimento
-    </h1>
-    <h2>
-      <small>
-        <a href="mailto:joseaugustodearaujonascimento+curriculo@gmail.com">
-          joseaugustodearaujonascimento@gmail.com</a>
-      </small>
-      <br>
-      <small>
-        <a href="https://github.com/augusteiner" target="_blank">
-          github.com/augusteiner</a>
-      </small>
-    </h2>
-  </header>
-  <section>
+  <div class="container">
     <header>
-      <h3>
-        Objetivos
-      </h3>
+      <!-- foto pessoal -->
+      <img class="foto-pessoal" src="http://goo.gl/4TTzA5" width="100" alt="Minha foto pessoal">
+      <!-- qr code -->
+      <!--<img src="http://goo.gl/d5m5s7" align="right" width="140" alt="">-->
+      <h1>
+        José Augusto de A. Nascimento
+      </h1>
+      <h2>
+        <small>
+          <a href="mailto:joseaugustodearaujonascimento+curriculo@gmail.com">
+            joseaugustodearaujonascimento@gmail.com</a>
+        </small>
+        <br>
+        <small>
+          <a href="https://github.com/augusteiner" target="_blank">
+            github.com/augusteiner</a>
+        </small>
+      </h2>
     </header>
-    <hr>
-    <p class="text-justify">
-      Crescer profissionalmente, aumentar minha base de conhecimento, empregar as boas práticas
-      e metodologias ágeis, buscando sempre melhorar o próprio desempenho e inovar
-      com o objetivo de desenvolver <em>softwares</em> que minimizem custos, prazos e utilização de recursos computacionais.
-    </p>
-  </section>
-  <section>
-    <header>
-      <h3>
-        Formação Acadêmica
-      </h3>
-    </header>
-    <hr>
-    <article>
+    <section>
       <header>
-        <h4>
-          Técnico em Informática - <u>CEFET-RN | IFRN</u> (2005 - 2008)
-        </h4>
+        <h3>
+          Objetivos
+        </h3>
       </header>
-      <div>
-        <ul>
-          <li>
-            Instalação e Manutenção de micro-computadores;
-          </li>
-          <li>
-            Desenvolvimento de aplicações (<u>Delphi</u>, <u>ASP.NET WebForms</u>);
-          </li>
-          <li>
-            Gerencia e Programação em BDs relacionais: <u>Firebird</u> e <u>SQL Server</u>;
-          </li>
-        </ul>
-      </div>
-    </article>
-    <!--
-    <article>
-      <header>
-        <h4>
-          Graduando em Engenharia de Computação pela <u>UFRN</u> (2009 - 2014)
-        </h4>
-      </header>
+      <hr>
       <p class="text-justify">
-        <ul>
-          <li>
-            Desenvolvimento de Sistemas Embarcados;
-          </li>
-          <li>
-            Estruturas de Dados I e II;
-          </li>
-          <li>
-            Técnicas de Resolução de Problemas;
-          </li>
-        </ul>
+        Crescer profissionalmente, aumentar minha base de conhecimento, empregar as boas práticas
+        e metodologias ágeis, buscando sempre melhorar o próprio desempenho e inovar
+        com o objetivo de desenvolver <em>softwares</em> que minimizem custos, prazos e utilização de recursos computacionais.
       </p>
-    </article>
-    -->
-    <article>
+    </section>
+    <section>
       <header>
-        <h4>
-          Graduando em <abbr title="Tecnologia em Análise e Desenvolvimento de Sistemas">TADS</abbr> - <u>IFRN</u> (2015 - 2018)
-        </h4>
+        <h3>
+          Formação Acadêmica
+        </h3>
       </header>
-      <div>
-        <ul>
-          <li>
-            Desenvolvimento de aplicações Java para Web:
-            <ul>
-              <li>
-                Familiaridade com ferramentas de build: <u>Maven</u>, <u>Gradle</u> e <u>SBT</u>;
-              </li>
-              <li>
-                Criação de APIs Web: <u>JAX-RS</u>;
-              </li>
-              <li>
-                Utilização da <u>JSF</u> e <u>JPA/Hibernate</u>;
-              </li>
-            </ul>
-          </li>
-          <li>
-            Desenvolvimento de Sistemas Corporativos:
-            <ul>
-              <li>
-                Familiaridade com infraestrutura e prática de <u>DevOps</u> (<abbr title="Continuous Integration">CI</abbr> e <abbr title="Continuous Delivery">CD</abbr>);
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </article>
-  </section>
-  <section>
-    <header>
-      <h3>
-        Experiência Profissional
-      </h3>
-    </header>
-    <hr>
-    <article>
-      <header>
-        <h4>
-          Desenvolvedor - C#
-          <br>
-          <small>
-            <u>Marmore LTDA</u> (06/2008 - 07/2009)
-            <br>
-            Av. Governador Tarcísio de Vasconcelos Maia, 1960 - Candelária | <a href="http://marmoreltda.com.br" target="_blank">
-            marmoreltda.com.br</a>
-          </small>
-        </h4>
-      </header>
-      <div>
-        <ul>
-          <li>
-            Desenvolvimento de Software de Vendas;
-          </li>
-          <li>
-            Emprego de Linguagem Orientada a Objetos: <u>C#</u>;
-          </li>
-          <li>
-            Emprego de tecnologias de Persistência (<u>NHibernate</u>, <u>xml</u> e <u>web services</u>);
-          </li>
-          <li>
-            Programação em BDs Relacionais: <u>MSSQL</u>;
-          </li>
-        </ul>
-      </div>
-    </article>
-    <article>
-      <header>
-        <h4>
-          Desenvolvedor Web - PHP
-          <br>
-          <small>
-            <u>Techvirtual / Horus Edu</u> (02/2009 - 04/2018)
-            <br>
-            Av. Sen. Salgado Filho, 1718 | <a href="http://horusedu.com.br" target="_blank">
-              horusedu.com.br</a>
-          </small>
-        </h4>
-      </header>
-      <div>
-        <ul>
-          <li>
-            Desenvolvimento de Software Acadêmico e Financeiro;
-          </li>
-          <li>
-            Administração, Gerenciamento e Programação em BDs Relacionais: <u>MySQL</u>, <u>MSSQL</u>;
-          </li>
-          <li>
-            Instalação de Servidores de Aplicação e de Banco de Dados: <u>apache</u>, <u>nginx</u>, <u>mysql</u>, <u>mariadb</u>, <u>varnish</u>;
-          </li>
-          <li>
-            Gerência de servidores Linux: <u>debian</u>, <u>ubuntu</u>;
-          </li>
-          <li>
-            Desenvolvimento de Páginas Web: (empregando <u>javascript</u>, <u>json</u>, <u>ajax</u>, <u>css3</u> e <u>html5</u>)
-          </li>
-          <li>
-            Otimização de Sistemas para baixo Consumo de Recursos (RAM & CPU);
-          </li>
-        </ul>
-      </div>
-    </article>
-  </section>
-  <section>
-    <header>
-      <h3>
-        Diferenciais
-      </h3>
-    </header>
-    <hr>
-    <div>
-      <ul>
-        <li>
-          Experiência com Sistemas de Versionamento de Código: <u>subversion</u> e <u>git</u>;
-        </li>
-        <li>
-          Familiaridade com <i>testes unitários</i> e <i>automação de testes da UI</i>: <a href="http://www.seleniumhq.org/">selenium</a>, PHPUnit;
-        </li>
-        <li>
-          Experiência no Desenvolvimento de aplicações móveis:
+      <hr>
+      <article>
+        <header>
+          <h4>
+            Graduando em <abbr title="Tecnologia em Análise e Desenvolvimento de Sistemas">TADS</abbr> - <u>IFRN</u> (2015 - 2018)
+          </h4>
+        </header>
+        <div>
           <ul>
             <li>
-              <a href="https://github.com/augusteiner/droidchess">Android.Chess</a> (Java)
+              Desenvolvimento de aplicações Java para Web:
+              <ul>
+                <li>
+                  Uso de ferramentas de build: <u>Maven</u>, <u>Gradle</u> e <u>SBT</u>;
+                </li>
+                <li>
+                  Criação de APIs Web: <u>JAX-RS</u>;
+                </li>
+                <li>
+                  Uso da <u>JSF</u> e <u>JPA/Hibernate</u>;
+                </li>
+              </ul>
             </li>
             <li>
-              <a href="https://github.com/augusteiner/suapdroid">SUAPDroid</a> (Java/Kotlin)
-            </li>
-            <li>
-              <a href="https://github.com/augusteiner/Suap.Xamarin">Xamarin.SUAP</a> (C#/Xamarin)
+              Desenvolvimento de Sistemas Corporativos:
+              <ul>
+                <li>
+                  Uso de infraestrutura e práticas de <u>DevOps</u> (<abbr title="Continuous Integration">CI</abbr> e <abbr title="Continuous Delivery">CD</abbr>);
+                </li>
+                <li>
+                  Criação e Coordenação de <em>containers</em> com <u>Docker</u>;
+                </li>
+              </ul>
             </li>
           </ul>
-        </li>
-        <li>
-          Experiência com serviços de <i>Cloud Computing</i>: <u>Redhat Openshift</u>, <u>Microsoft Azure</u>, <u>Amazon AWS</u>;
-        </li>
-        <li>
-          Análise e Desenvolvimento de Framework MVC próprio de médio/grande porte;
-        </li>
-      </ul>
-    </div>
-  </section>
-  <footer>
-  </footer>
+        </div>
+      </article>
+      <!--
+      <article>
+        <header>
+          <h4>
+            Graduando em Engenharia de Computação pela <u>UFRN</u> (2009 - 2014)
+          </h4>
+        </header>
+        <p class="text-justify">
+          <ul>
+            <li>
+              Desenvolvimento de Sistemas Embarcados;
+            </li>
+            <li>
+              Estruturas de Dados I e II;
+            </li>
+            <li>
+              Técnicas de Resolução de Problemas;
+            </li>
+          </ul>
+        </p>
+      </article>
+      -->
+      <article>
+        <header>
+          <h4>
+            Técnico em Informática - <u>CEFET-RN | IFRN</u> (2005 - 2008)
+          </h4>
+        </header>
+        <div>
+          <ul>
+            <li>
+              Instalação e Manutenção de micro-computadores;
+            </li>
+            <li>
+              Desenvolvimento de aplicações (<u>Delphi</u>, <u>ASP.NET WebForms</u>);
+            </li>
+            <li>
+              Gerencia e Programação em BDs relacionais: <u>Firebird</u> e <u>SQL Server</u>;
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+    <section>
+      <header>
+        <h3>
+          Experiência Profissional
+        </h3>
+      </header>
+      <hr>
+      <article>
+        <header>
+          <h4>
+            Desenvolvedor Web - PHP
+            <br>
+            <small>
+              <u>Techvirtual</u> | <u>Horus Edu</u> (02/2009 - 04/2018)
+              <br>
+              Av. Sen. Salgado Filho, 1718 | <a href="http://horusedu.com.br" target="_blank">
+                horusedu.com.br</a>
+            </small>
+          </h4>
+        </header>
+        <div>
+          <ul>
+            <li>
+              Desenvolvimento de Software Acadêmico e Financeiro;
+            </li>
+            <li>
+              Administração, Gerenciamento e Programação em BDs Relacionais: <u>MySQL</u>, <u>MSSQL</u>;
+            </li>
+            <li>
+              Instalação de Servidores de Aplicação e de Banco de Dados: <u>apache</u>, <u>nginx</u>, <u>mysql</u>, <u>mariadb</u>, <u>varnish</u>;
+            </li>
+            <li>
+              Gerência de servidores Linux: <u>debian</u>, <u>ubuntu</u>;
+            </li>
+            <li>
+              Desenvolvimento de Páginas Web: (empregando <u>javascript</u>, <u>json</u>, <u>ajax</u>, <u>css3</u> e <u>html5</u>)
+            </li>
+            <li>
+              Otimização de Sistemas para baixo Consumo de Recursos (RAM & CPU);
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article>
+        <header>
+          <h4>
+            Desenvolvedor - C#
+            <br>
+            <small>
+              <u>Marmore LTDA</u> (06/2008 - 07/2009)
+              <br>
+              Av. Governador Tarcísio de Vasconcelos Maia, 1960 - Candelária | <a href="http://marmoreltda.com.br" target="_blank">
+              marmoreltda.com.br</a>
+            </small>
+          </h4>
+        </header>
+        <div>
+          <ul>
+            <li>
+              Desenvolvimento de Software de Vendas em <u>C#</u>;
+            </li>
+            <li>
+              Emprego de tecnologias de Persistência (<u>NHibernate</u>, <u>xml</u> e <u>web services</u>);
+            </li>
+            <li>
+              Programação em BDs Relacionais: <u>MSSQL</u>;
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+    <section>
+      <header>
+        <h3>
+          Diferenciais
+        </h3>
+      </header>
+      <hr>
+      <div>
+        <ul>
+          <li>
+            Experiência com Sistemas de Versionamento de Código: <u>subversion</u> e <u>git</u>;
+          </li>
+          <li>
+            Familiaridade com <i>testes unitários</i> e <i>automação de testes da UI</i>: <a href="http://www.seleniumhq.org/">selenium</a>, PHPUnit;
+          </li>
+          <li>
+            Experiência no Desenvolvimento de aplicações móveis:
+            <ul>
+              <li>
+                <a href="https://github.com/augusteiner/droidchess">Android.Chess</a> (Java)
+              </li>
+              <li>
+                <a href="https://github.com/augusteiner/suapdroid">SUAPDroid</a> (Java/Kotlin)
+              </li>
+              <li>
+                <a href="https://github.com/augusteiner/Suap.Xamarin">Xamarin.SUAP</a> (C#/Xamarin)
+              </li>
+            </ul>
+          </li>
+          <li>
+            Experiência com serviços de <i>Cloud Computing</i>: <u>Redhat Openshift</u>, <u>Microsoft Azure</u>, <u>Amazon AWS</u>;
+          </li>
+          <li>
+            Análise e Desenvolvimento de Framework MVC próprio de médio/grande porte;
+          </li>
+        </ul>
+      </div>
+    </section>
+    <footer>
+    </footer>
+  </div>
 </body>
 </html>
